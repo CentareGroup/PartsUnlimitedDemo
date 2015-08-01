@@ -22,6 +22,7 @@
     <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <TargetFrameworkProfile />
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,18 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FeatureSwitch, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FeatureSwitch.1.3.0\lib\net40\FeatureSwitch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FeatureSwitch.Unity, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FeatureSwitch.Unity.1.3.0\lib\net45\FeatureSwitch.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FeatureSwitch.Web.Optimization, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FeatureSwitch.Web.Optimization.1.3.1\lib\net45\FeatureSwitch.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -299,6 +312,7 @@
     <Content Include="Content\Account.css.map">
       <DependentUpon>Account.css</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\gettheparts.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimited-vcurrent.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimitedcus07.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -446,6 +460,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ToggleConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -470,6 +485,8 @@
     <Compile Include="Hubs\AnnouncementHub.cs" />
     <Compile Include="Models\CommunityPost.cs" />
     <Compile Include="Models\OrderCostSummary.cs" />
+    <Compile Include="Utils\FeatureSwitchFeatureContext.cs" />
+    <Compile Include="Utils\IFeatureContext.cs" />
     <Compile Include="Utils\LayoutDataAttribute.cs" />
     <Compile Include="Utils\PartsUnlimitedDbInitializer.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -519,6 +536,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FeatureToggles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

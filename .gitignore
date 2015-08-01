@@ -40,3 +40,10 @@ src/*/wwwroot/Content/site.*css
 *.sln.ide
 *.orig
 /PartsUnlimitedLite/packages/Newtonsoft.Json.6.0.4/lib
+/src/PartsUnlimited.Models/project.lock.json
+/src/PartsUnlimitedWebsite
+/test/PartsUnlimited.UnitTests/project.lock.json
+/src/PartsUnlimited.WebJobs.UpdateProductInventory/project.lock.json
+/src/PartsUnlimited.WebJobs.ProcessOrder/project.lock.json
+/env/PartsUnlimited.Environment/.vs/config/applicationhost.config
+/.vs/config/applicationhost.config

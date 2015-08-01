@@ -24,6 +24,8 @@ namespace PartsUnlimited
             UnityContainer = UnityConfig.BuildContainer();
             DependencyResolver.SetResolver(new UnityDependencyResolver(UnityContainer));
 
+            ToggleConfig.Setup(UnityContainer);
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             WebApiConfig.RegisterWebApi(GlobalConfiguration.Configuration, UnityContainer);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
