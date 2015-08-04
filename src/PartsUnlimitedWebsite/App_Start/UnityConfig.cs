@@ -6,7 +6,11 @@ using PartsUnlimited.Utils;
 
 namespace PartsUnlimited
 {
-    public class UnityConfig
+    using FeatureSwitch;
+
+    using PartsUnlimited.FeatureToggles;
+
+    public static class UnityConfig
     {
         public static UnityContainer BuildContainer()
         {
@@ -22,6 +26,26 @@ namespace PartsUnlimited
             container.RegisterInstance<IHttpClient>(container.Resolve<HttpClientWrapper>());
 
             return container;
+        }
+
+        public static void ConfigureToggleDependencies(IUnityContainer container)
+        {
+            container.RegisterTypeIfEnabled<ShowRecommendationsToggle, IRecommendationEngine, AzureMLFrequentlyBoughtTogetherRecommendationEngine, NaiveRecommendationEngine>();
+        }
+
+        private static void RegisterTypeIfEnabled<TFeature, TInterface, TEnabled, TDisabled>(this IUnityContainer container) 
+            where TFeature : BaseFeature
+            where TEnabled : TInterface
+            where TDisabled : TInterface
+        {
+            if (FeatureContext.IsEnabled<TFeature>())
+            {
+                container.RegisterType<TInterface, TEnabled>();
+            }
+            else
+            {
+                container.RegisterType<TInterface, TDisabled>();
+            }
         }
     }
 }

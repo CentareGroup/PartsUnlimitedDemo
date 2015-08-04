@@ -26,6 +26,8 @@ namespace PartsUnlimited
 
             ToggleConfig.Setup(UnityContainer);
 
+            UnityConfig.ConfigureToggleDependencies(UnityContainer);
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             WebApiConfig.RegisterWebApi(GlobalConfiguration.Configuration, UnityContainer);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

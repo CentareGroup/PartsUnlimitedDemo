@@ -198,6 +198,17 @@ namespace PartsUnlimited
                 userManager.AddToRole(user.Id, AdminConstants.Role);
                 userManager.AddClaim(user.Id, new Claim(AdminConstants.ManageStore.Name, AdminConstants.ManageStore.Allowed));
             }
+
+            var testUserName = "jerry@takemyorder.com";
+            var testUser = userManager.FindByName(testUserName);
+
+            if (testUser == null)
+            {
+                testUser = new ApplicationUser { UserName = testUserName, Email = testUserName };
+                var result = userManager.Create(testUser, password);
+                if (!result.Succeeded)
+                    throw new Exception(string.Format("Failed to create test user: {0}", string.Join(",", result.Errors)));
+            }
         }
     }
 }
