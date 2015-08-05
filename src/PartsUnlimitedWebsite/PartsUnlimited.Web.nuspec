@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PartsUnlimited.Web</id>
+    <title>PartsUnlimited.Web</title>
+    <version>$version$</version>
+    <authors>Centare</authors>
+    <owners>Centare</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Parts Unlimited Web Application Package</description>
+  </metadata>
+  <files>
+    <file src="obj\Release\Package\PackageTmp\**\*.*" target="content" />
+    <file src="*Dev.config" target="content" />
+    <file src="*Qa.config" target="content" />
+    <file src="*Uat.config" target="content" />
+    <file src="*Prod.config" target="content" />
+  </files>
+</package>
