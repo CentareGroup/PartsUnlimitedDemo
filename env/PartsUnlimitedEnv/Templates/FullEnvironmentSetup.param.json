@@ -3,31 +3,46 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "WebsiteName": {
-            "value": ""
+            "value": "gettheparts"
         },
         "PartsUnlimitedServerName": {
-            "value": ""
+            "value": "pusql01"
         },
         "PartsUnlimitedHostingPlanName": {
-            "value": ""
+            "value": "Free"
         },
         "CdnStorageAccountName": {
-            "value": ""
+            "value": "partsunlimimteduset"
         },
         "CdnStorageContainerName": {
-            "value": ""
+            "value": "cdn-prod"
         },
         "CdnStorageAccountNameForDev": {
-            "value": ""
+            "value": "partsunlimimteduset"
         },
         "CdnStorageContainerNameForDev": {
-            "value": ""
+            "value": "cdn-dev"
         },
         "CdnStorageAccountNameForStaging": {
-            "value": ""
+            "value": "partsunlimimteduset"
         },
         "CdnStorageContainerNameForStaging": {
-            "value": ""
+            "value": "cdn-stage"
+        },
+        "PartsUnlimitedServerAdminLogin": {
+            "value": "AdminCentare"
+        },
+        "PartsUnlimitedServerAdminLoginPassword": {
+            "value": "C3nt@r3!"
+        },
+        "PartsUnlimitedServerAdminLoginPasswordForTest": {
+            "value": "C3nt@r3!"
+        },
+        "PartsUnlimitedDBEdition": {
+            "value": "Basic"
+        },
+        "PartsUnlimitedHostingPlanWorkerSize": {
+            "value": "1"
         }
     }
 }
