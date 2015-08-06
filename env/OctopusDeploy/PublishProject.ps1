@@ -1,6 +1,8 @@
 ﻿param ([string]$OutputDirectory,
        [string]$BuildNumber,
-       [string]$Configuration)
+       [string]$Configuration,
+       [string]$OctopusServerUrl,
+       [string]$OctopusApiKey)
 
 Write-Host "Output Directory: $OutputDirectory"
 Write-Host "Configuration: $Configuration"
@@ -30,6 +32,24 @@ If (!(Test-Path $localNuGetExe)) {
 Write-Host "Packaging up project"
 
 $basePath = Resolve-Path -Path '.\src\PartsUnlimitedWebsite'
-& $localNuGetExe pack src\PartsUnlimitedWebsite\PartsUnlimited.Web.nuspec -OutputDirectory $OutputDirectory -BasePath $basePath -Version $BuildNumber -Properties Configuration=${Configuration} -Properties id=PartsUnlimited.Web
+& $localNuGetExe pack src\PartsUnlimitedWebsite\PartsUnlimited.Web.nuspec -OutputDirectory $OutputDirectory -BasePath $basePath -Version $BuildNumber -Properties Configuration=${Configuration} -Properties id=PartsUnlimited.Web -NoPackageAnalysis
 
-# Use NuGet to pull down  
+# Use NuGet to push deployment
+
+# Check URL
+$serverUrl = $OctopusServerUrl
+If (!$serverUrl.EndsWith('/nuget/packages')) {
+    
+    If (!$serverUrl.EndsWith('/')) {
+        $serverUrl = "$serverUrl/" 
+    }
+
+    $serverUrl = "${serverUrl}nuget/packages"
+}
+
+$files = Get-ChildItem -Path $OutputDirectory -Filter *.nupkg -ErrorAction SilentlyContinue
+
+ForEach ($file in $files) {
+    Write-Host "Pushing package $($file.Name) to: $serverUrl"
+    & $localNuGetExe push "$($file.FullName)" -Source $serverUrl -ApiKey $OctopusApiKey -NonInteractive
+}
