@@ -30,6 +30,6 @@ If (!(Test-Path $localNuGetExe)) {
 Write-Host "Packaging up project"
 
 $basePath = Resolve-Path -Path '.\src\PartsUnlimitedWebsite'
-& $localNuGetExe pack src\PartsUnlimitedWebsite\PartsUnlimited.Web.nuspec -OutputDirectory $OutputDirectory -BasePath $basePath -Version $BuildNumber -Properties "Configuration=$Configuration" -Properties id=PartsUnlimited.Web
+& $localNuGetExe pack src\PartsUnlimitedWebsite\PartsUnlimited.Web.nuspec -OutputDirectory $OutputDirectory -BasePath $basePath -Version $BuildNumber -Properties Configuration=${Configuration} -Properties id=PartsUnlimited.Web
 
 # Use NuGet to pull down  
