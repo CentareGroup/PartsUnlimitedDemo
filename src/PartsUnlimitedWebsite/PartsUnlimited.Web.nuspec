@@ -10,10 +10,10 @@
     <description>Parts Unlimited Web Application Package</description>
   </metadata>
   <files>
-    <file src="obj\$Configuration$\Package\PackageTmp\**\*.*" target="content" />
-    <file src="*Dev.config" target="content" />
-    <file src="*Qa.config" target="content" />
-    <file src="*Uat.config" target="content" />
-    <file src="*Prod.config" target="content" />
+    <file src="obj\$Configuration$\Package\PackageTmp\**\*.*" target="" />
+    <file src="*Dev.config" target="" />
+    <file src="*Qa.config" target="" />
+    <file src="*Uat.config" target="" />
+    <file src="*Prod.config" target="" />
   </files>
 </package>
