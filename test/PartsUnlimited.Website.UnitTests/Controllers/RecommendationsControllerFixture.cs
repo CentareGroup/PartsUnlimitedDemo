@@ -4,6 +4,7 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
 {
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
     using PartsUnlimited.Models;
     using PartsUnlimited.Recommendations;
     using PartsUnlimited.Utils;
+    using PartsUnlimited.Website.UnitTests.Helpers;
 
     [TestClass]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
@@ -56,10 +58,11 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
             }.AsQueryable();
 
             var mockSet = new Mock<IDbSet<Product>>();
-            mockSet.As<IQueryable<Product>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Product>>().Setup(m => m.Provider).Returns(new TestDbAsyncQueryProvider<Product>(data.Provider));
             mockSet.As<IQueryable<Product>>().Setup(m => m.Expression).Returns(data.Expression);
             mockSet.As<IQueryable<Product>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Product>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            mockSet.As<IDbAsyncEnumerable<Product>>().Setup(m => m.GetAsyncEnumerator()).Returns(new TestDbAsyncEnumerator<Product>(data.GetEnumerator()));
 
             var dbMock = new Mock<IPartsUnlimitedContext>(MockBehavior.Strict);
             dbMock.Setup(d => d.Products).Returns(mockSet.Object);

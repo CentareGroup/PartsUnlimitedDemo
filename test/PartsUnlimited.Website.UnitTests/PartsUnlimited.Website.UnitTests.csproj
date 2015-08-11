@@ -104,6 +104,8 @@
   <ItemGroup>
     <Compile Include="Controllers\ProductControllerFixture.cs" />
     <Compile Include="Controllers\RecommendationsControllerFixture.cs" />
+    <Compile Include="Helpers\TestDbAsyncEnumerable.cs" />
+    <Compile Include="Helpers\TestDbAsyncQueryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
