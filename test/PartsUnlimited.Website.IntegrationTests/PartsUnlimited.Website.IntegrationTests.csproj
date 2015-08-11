@@ -35,6 +35,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IntegrationTests|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\IntegrationTests\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SpecBind, Version=1.5.3.193, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SpecBind.1.5.3.193\lib\net45\SpecBind.dll</HintPath>
@@ -89,6 +98,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="App.IntegrationTests.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
     <None Include="Features\OrderAProduct.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>OrderAProduct.feature.cs</LastGenOutput>
@@ -122,7 +134,9 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" />
+  <Target Name="AfterBuild" Condition="Exists('App.$(Configuration).config')">
+    <TransformXml Source="App.config" Destination="$(OutDir)$(AssemblyName).dll.config" Transform="App.$(Configuration).config" />
+  </Target>
 </Project>
