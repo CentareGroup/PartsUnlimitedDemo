@@ -6,6 +6,7 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
     using System.Data.Entity;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
 
     using Moq;
@@ -21,7 +22,7 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
     public class RecommendationsControllerFixture
     {
         [TestMethod]
-        public async void TestGetRecommendations_WhenFeatureDisabled_ReturnsEmptySet()
+        public async Task TestGetRecommendations_WhenFeatureDisabled_ReturnsEmptySet()
         {
             var dbMock = new Mock<IPartsUnlimitedContext>(MockBehavior.Strict);
             var featureContext = new Mock<IFeatureContext>(MockBehavior.Strict);
@@ -42,7 +43,7 @@ namespace PartsUnlimited.Website.UnitTests.Controllers
         }
 
         [TestMethod]
-        public async void TestGetRecommendations_WhenFeatureEnabledAndIsValid_ReturnsRelatedProducts()
+        public async Task TestGetRecommendations_WhenFeatureEnabledAndIsValid_ReturnsRelatedProducts()
         {
             var product1 = new Product { ProductId = 4567 };
             var product2 = new Product { ProductId = 1212 };
