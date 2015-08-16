@@ -316,146 +316,56 @@
     <Content Include="Content\Account.css.map">
       <DependentUpon>Account.css</DependentUpon>
     </Content>
-    <Content Include="newrelic\Extensions\CoreInstrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Agent.AttributeFilter.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Agent.Configuration.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Agent.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Agent.LabelsService.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Agent.LazyMap.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Collections.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Dispatchers.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Memoization.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.CallStack.AsyncLocal.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Asp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Default.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Wcf3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.Instrumentation.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Reflection.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.SystemExtensions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.SystemInterfaces.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Testing.Assertions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.Trie.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.TypeInstantiation.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\NewRelic.WeakActions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\NewRelic.Agent.Core.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\NewRelic.Agent.Extensions.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\newrelic.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\Extensions\extension.xsd">
+    <None Include="newrelic\Extensions\CoreInstrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Agent.AttributeFilter.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Agent.Configuration.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Agent.Core.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Agent.LabelsService.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Agent.LazyMap.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Collections.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Core.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Dispatchers.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Memoization.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.CallStack.AsyncLocal.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Asp.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Default.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Wcf3.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.Instrumentation.xml" />
+    <None Include="newrelic\Extensions\NewRelic.Reflection.dll" />
+    <None Include="newrelic\Extensions\NewRelic.SystemExtensions.dll" />
+    <None Include="newrelic\Extensions\NewRelic.SystemInterfaces.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Testing.Assertions.dll" />
+    <None Include="newrelic\Extensions\NewRelic.Trie.dll" />
+    <None Include="newrelic\Extensions\NewRelic.TypeInstantiation.dll" />
+    <None Include="newrelic\Extensions\NewRelic.WeakActions.dll" />
+    <None Include="newrelic\NewRelic.Agent.Core.dll" />
+    <None Include="newrelic\NewRelic.Agent.Extensions.dll" />
+    <None Include="newrelic\newrelic.config" />
+    <None Include="newrelic\Extensions\extension.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="newrelic\newrelic.xsd">
+    </None>
+    <None Include="newrelic\newrelic.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Properties\PublishProfiles\gettheparts.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimited-vcurrent.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimitedcus07.pubxml" />
@@ -508,9 +418,7 @@
     <Content Include="Images\submenu_image3.jpg" />
     <Content Include="Images\submenu_image4.jpg" />
     <Content Include="Images\unlimited_logo.png" />
-    <Content Include="newrelic\NewRelic.Profiler.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="newrelic\NewRelic.Profiler.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

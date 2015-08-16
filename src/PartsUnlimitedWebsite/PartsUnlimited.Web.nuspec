@@ -11,6 +11,7 @@
   </metadata>
   <files>
     <file src="obj\$Configuration$\Package\PackageTmp\**\*.*" target="" />
+	<file src"newrelic\**\*.*" target="newrelic" />
     <file src="*Dev.config" target="" />
     <file src="*Qa.config" target="" />
     <file src="*Uat.config" target="" />
