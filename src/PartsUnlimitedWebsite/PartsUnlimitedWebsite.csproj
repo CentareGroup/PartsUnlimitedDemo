@@ -366,6 +366,7 @@
     <None Include="newrelic\newrelic.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="PartsUnlimited.Web.nuspec" />
     <None Include="Properties\PublishProfiles\gettheparts.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimited-vcurrent.pubxml" />
     <None Include="Properties\PublishProfiles\partsunlimitedcus07.pubxml" />
