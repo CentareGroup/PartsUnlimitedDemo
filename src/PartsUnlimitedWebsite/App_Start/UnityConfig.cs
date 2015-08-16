@@ -19,7 +19,7 @@ namespace PartsUnlimited
             container.RegisterType<IPartsUnlimitedContext, PartsUnlimitedContext>();
             container.RegisterType<IOrdersQuery, OrdersQuery>();
             container.RegisterType<IRaincheckQuery, RaincheckQuery>();
-            container.RegisterType<IRecommendationEngine, AzureMLFrequentlyBoughtTogetherRecommendationEngine>();
+            //container.RegisterType<IRecommendationEngine, AzureMLFrequentlyBoughtTogetherRecommendationEngine>();
             container.RegisterType<ITelemetryProvider, TelemetryProvider>();
             container.RegisterType<IProductSearch, StringContainsProductSearch>();
 
