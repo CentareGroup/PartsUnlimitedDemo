@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table2.AddRow(new string[] {
                         "Name",
-                        "Jerry Freloader"});
+                        "Jerry Freloader Jr."});
             table2.AddRow(new string[] {
                         "Phone",
                         "414-293-1010"});
@@ -140,7 +140,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table3.AddRow(new string[] {
                         "Promo Code",
-                        "FREE"});
+                        "FREE AND COOL"});
 #line 26
   testRunner.And("I enter data", ((string)(null)), table3, "And ");
 #line 29

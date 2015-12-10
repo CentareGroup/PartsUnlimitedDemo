@@ -32,12 +32,6 @@
         "PartsUnlimitedServerAdminLogin": {
             "value": "AdminCentare"
         },
-        "PartsUnlimitedServerAdminLoginPassword": {
-            "value": "C3nt@r3!"
-        },
-        "PartsUnlimitedServerAdminLoginPasswordForTest": {
-            "value": "C3nt@r3!"
-        },
         "PartsUnlimitedDBEdition": {
             "value": "Basic"
         },

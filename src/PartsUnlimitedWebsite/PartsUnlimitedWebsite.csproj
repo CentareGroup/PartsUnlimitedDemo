@@ -609,7 +609,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52714</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://partsunlimited.local</IISUrl>
+          <IISUrl>http://localhost/PartsUnlimited</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

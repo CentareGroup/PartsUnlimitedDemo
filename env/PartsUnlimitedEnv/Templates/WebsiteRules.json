@@ -7,7 +7,7 @@
         },
         "EnableRules": {
             "type": "bool",
-            "defaultValue": false
+            "defaultValue": true
         }
     },
     "resources": [
@@ -68,7 +68,7 @@
                 "action": {
                     "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
                     "sendToServiceOwners": true,
-                    "customEmails": [ ]
+                    "customEmails": ["dan.piessens@centare.com" ]
                 }
             }
         }
