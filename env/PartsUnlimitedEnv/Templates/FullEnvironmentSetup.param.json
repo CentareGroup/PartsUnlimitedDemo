@@ -3,40 +3,31 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "WebsiteName": {
-            "value": "gettheparts"
+            "value": ""
         },
         "PartsUnlimitedServerName": {
-            "value": "pusql01"
+            "value": ""
         },
         "PartsUnlimitedHostingPlanName": {
-            "value": "Free"
+            "value": ""
         },
         "CdnStorageAccountName": {
-            "value": "partsunlimimteduset"
+            "value": ""
         },
         "CdnStorageContainerName": {
-            "value": "cdn-prod"
+            "value": ""
         },
         "CdnStorageAccountNameForDev": {
-            "value": "partsunlimimteduset"
+            "value": ""
         },
         "CdnStorageContainerNameForDev": {
-            "value": "cdn-dev"
+            "value": ""
         },
         "CdnStorageAccountNameForStaging": {
-            "value": "partsunlimimteduset"
+            "value": ""
         },
         "CdnStorageContainerNameForStaging": {
-            "value": "cdn-stage"
-        },
-        "PartsUnlimitedServerAdminLogin": {
-            "value": "AdminCentare"
-        },
-        "PartsUnlimitedDBEdition": {
-            "value": "Basic"
-        },
-        "PartsUnlimitedHostingPlanWorkerSize": {
-            "value": "1"
+            "value": ""
         }
     }
 }
