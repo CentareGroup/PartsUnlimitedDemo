@@ -41,6 +41,7 @@
     <Content Include="Templates\Website.json" />
     <Content Include="Templates\WebsiteRules.json" />
     <Content Include="Templates\WebsiteWithTwoSlots.json" />
+    <None Include="PartsUnlimited.Environment.nuspec" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>
