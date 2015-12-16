@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.ModelBinding;
 using Newtonsoft.Json;
 
 namespace PartsUnlimited.Models
@@ -45,7 +44,6 @@ namespace PartsUnlimited.Models
         public virtual List<OrderDetail> OrderDetails { get; set; }
 
         [ScaffoldColumn(false)]
-        [BindNever]
         [Required]
         public DateTime Created { get; set; }
 

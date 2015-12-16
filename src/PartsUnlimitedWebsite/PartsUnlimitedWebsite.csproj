@@ -19,7 +19,6 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <TargetFrameworkProfile />
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseGlobalApplicationHostFile />
@@ -42,8 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -51,26 +51,29 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="FeatureSwitch, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FeatureSwitch.1.3.0\lib\net40\FeatureSwitch.dll</HintPath>
+    <Reference Include="FeatureSwitch, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FeatureSwitch.1.4.0\lib\net40\FeatureSwitch.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FeatureSwitch.Unity, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FeatureSwitch.Unity.1.3.0\lib\net45\FeatureSwitch.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FeatureSwitch.Web.Optimization, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FeatureSwitch.Web.Optimization.1.3.1\lib\net45\FeatureSwitch.Web.Optimization.dll</HintPath>
+    <Reference Include="FeatureSwitch.Web.Optimization, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FeatureSwitch.Web.Optimization.1.3.2\lib\net45\FeatureSwitch.Web.Optimization.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -111,35 +114,39 @@
     <Reference Include="Microsoft.Owin.Security.Twitter">
       <HintPath>..\..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="NewRelic.Api.Agent, Version=5.2.87.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NewRelic.Azure.WebSites.5.2.87.0\lib\NewRelic.Api.Agent.dll</HintPath>
+    <Reference Include="NewRelic.Api.Agent, Version=5.10.59.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NewRelic.Azure.WebSites.5.10.59.0\lib\NewRelic.Api.Agent.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Globalization" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -199,11 +206,17 @@
     <Reference Include="Unity.Mvc4">
       <HintPath>..\..\packages\Unity.Mvc4.1.4.0.0\lib\net45\Unity.Mvc4.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.WebApi">
-      <HintPath>..\..\packages\Unity.WebAPI.5.1\lib\net45\Unity.WebApi.dll</HintPath>
+    <Reference Include="Unity.ServiceLocator, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.ServiceLocator.2.0.0\lib\net45\Unity.ServiceLocator.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="WebGrease">
-      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    <Reference Include="Unity.WebApi, Version=5.1.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.WebAPI.5.1\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -316,53 +329,63 @@
     <Content Include="Content\Account.css.map">
       <DependentUpon>Account.css</DependentUpon>
     </Content>
-    <None Include="newrelic\Extensions\CoreInstrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Agent.AttributeFilter.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Agent.Configuration.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Agent.Core.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Agent.LabelsService.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Agent.LazyMap.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Collections.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Core.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Dispatchers.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Memoization.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.CallStack.AsyncLocal.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Asp.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Default.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Wcf3.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.Instrumentation.xml" />
-    <None Include="newrelic\Extensions\NewRelic.Reflection.dll" />
-    <None Include="newrelic\Extensions\NewRelic.SystemExtensions.dll" />
-    <None Include="newrelic\Extensions\NewRelic.SystemInterfaces.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Testing.Assertions.dll" />
-    <None Include="newrelic\Extensions\NewRelic.Trie.dll" />
-    <None Include="newrelic\Extensions\NewRelic.TypeInstantiation.dll" />
-    <None Include="newrelic\Extensions\NewRelic.WeakActions.dll" />
-    <None Include="newrelic\NewRelic.Agent.Core.dll" />
-    <None Include="newrelic\NewRelic.Agent.Extensions.dll" />
-    <None Include="newrelic\newrelic.config" />
-    <None Include="newrelic\Extensions\extension.xsd">
+    <Content Include="newrelic\Extensions\CoreInstrumentation.xml" />
+    <Content Include="newrelic\Extensions\JetBrains.Annotations.dll" />
+    <Content Include="newrelic\Extensions\JetBrains.Annotations.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Agent.AttributeFilter.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Agent.Configuration.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Agent.Core.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Agent.LabelsService.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Agent.LazyMap.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Collections.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Core.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Dispatchers.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Memoization.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.CallStack.AsyncLocal.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Asp.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Default.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.TransactionContext.Wcf3.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Asp35.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpClient.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpWebRequest.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.HttpWebRequest.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.MongoDb.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Mvc3.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.NServiceBus.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Owin.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Owin.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.ServiceStackRedis.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.ServiceStackRedis.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.StackExchangeRedis.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.StackExchangeRedis.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.Wcf3.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi1.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebApi2.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebOptimization.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Providers.Wrapper.WebServices.Instrumentation.xml" />
+    <Content Include="newrelic\Extensions\NewRelic.Reflection.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.SystemExtensions.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.SystemInterfaces.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Testing.Assertions.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.Trie.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.TypeInstantiation.dll" />
+    <Content Include="newrelic\Extensions\NewRelic.WeakActions.dll" />
+    <Content Include="newrelic\NewRelic.Agent.Core.dll" />
+    <Content Include="newrelic\NewRelic.Agent.Extensions.dll" />
+    <Content Include="newrelic\newrelic.config" />
+    <Content Include="newrelic\Extensions\extension.xsd">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <None Include="newrelic\newrelic.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -419,7 +442,7 @@
     <Content Include="Images\submenu_image3.jpg" />
     <Content Include="Images\submenu_image4.jpg" />
     <Content Include="Images\unlimited_logo.png" />
-    <None Include="newrelic\NewRelic.Profiler.dll" />
+    <Content Include="newrelic\NewRelic.Profiler.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -540,26 +563,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\AnnouncementHub.cs" />
-    <Compile Include="Models\CommunityPost.cs" />
-    <Compile Include="Models\OrderCostSummary.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\IPartsUnlimitedUserContext.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Utils\FeatureSwitchFeatureContext.cs" />
     <Compile Include="Utils\IFeatureContext.cs" />
     <Compile Include="Utils\LayoutDataAttribute.cs" />
     <Compile Include="Utils\PartsUnlimitedDbInitializer.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\CartItem.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\IPartsUnlimitedContext.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Manufacturer.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PartsUnlimitedContext.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Raincheck.cs" />
-    <Compile Include="Models\ShoppingCart.cs" />
-    <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recommendations\AzureMLFrequentlyBoughtTogetherRecommendationEngine.cs" />
     <Compile Include="Recommendations\IRecommendationEngine.cs" />
@@ -593,6 +606,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PartsUnlimited.Models\PartsUnlimited.Models.csproj">
+      <Project>{521d684c-a182-4516-9cf4-0ba2cdae16a8}</Project>
+      <Name>PartsUnlimited.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

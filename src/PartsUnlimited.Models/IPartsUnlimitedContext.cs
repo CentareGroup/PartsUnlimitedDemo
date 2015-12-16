@@ -13,7 +13,6 @@ namespace PartsUnlimited.Models
         IDbSet<OrderDetail> OrderDetails { get; }
         IDbSet<Order> Orders { get; }
         IDbSet<Product> Products { get; }
-        IDbSet<ApplicationUser> Users { get; }
         IDbSet<Raincheck> RainChecks { get; }
         IDbSet<Store> Stores { get; }
 

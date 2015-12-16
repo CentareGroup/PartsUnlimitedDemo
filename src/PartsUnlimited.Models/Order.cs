@@ -1,21 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.ModelBinding;
 
 namespace PartsUnlimited.Models
 {
     //[Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Country,Phone,Email")]
     public class Order
     {
-        [BindNever]
         [ScaffoldColumn(false)]
         public int OrderId { get; set; }
 
-        [BindNever]
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
 
-        [BindNever]
         [Required]
         [ScaffoldColumn(false)]
         public string Username { get; set; }
@@ -58,11 +54,11 @@ namespace PartsUnlimited.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [BindNever]
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
-        [BindNever]
         public List<OrderDetail> OrderDetails { get; set; }
+
+        public bool Processed { get; set; }
     }
 }
