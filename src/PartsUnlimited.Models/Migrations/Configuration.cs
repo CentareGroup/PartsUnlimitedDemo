@@ -1,15 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Globalization;
-using System.Linq;
-using PartsUnlimited.Models;
-
-namespace PartsUnlimited.Utils
+namespace PartsUnlimited.Models.Migrations
 {
-    public class PartsUnlimitedDbInitializer : CreateDatabaseIfNotExists<PartsUnlimitedContext>
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+    using System.Globalization;
+    using System.Linq;
+    internal sealed class Configuration : DbMigrationsConfiguration<PartsUnlimitedContext>
     {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "PartsUnlimited.Models.PartsUnlimitedContext";
+        }
+
         protected override void Seed(PartsUnlimitedContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -35,16 +38,16 @@ namespace PartsUnlimited.Utils
                 Created = DateTime.Now,
                 Title = "Halogen Headlights (2 Pack)",
                 CategoryId = categoriesMap["Lighting"],
-                Price = 38.99M, 
-                SalePrice = 38.99M, 
-                ProductArtUrl = "product_lighting_headlight.jpg", 
-                ProductDetails = "{ \"Light Source\" : \"Halogen\", \"Assembly Required\": \"Yes\", \"Color\" : \"Clear\", \"Interior\" : \"Chrome\", \"Beam\": \"low and high\", \"Wiring harness included\" : \"Yes\", \"Bulbs Included\" : \"No\",  \"Includes Parking Signal\" : \"Yes\"}", 
+                Price = 38.99M,
+                SalePrice = 38.99M,
+                ProductArtUrl = "product_lighting_headlight.jpg",
+                ProductDetails = "{ \"Light Source\" : \"Halogen\", \"Assembly Required\": \"Yes\", \"Color\" : \"Clear\", \"Interior\" : \"Chrome\", \"Beam\": \"low and high\", \"Wiring harness included\" : \"Yes\", \"Bulbs Included\" : \"No\",  \"Includes Parking Signal\" : \"Yes\"}",
                 Description = "Our Halogen Headlights are made to fit majority of vehicles with our  universal fitting mold. Product requires some assembly and includes light bulbs.",
                 Inventory = 10,
                 LeadTime = 0,
                 RecommendationId = 1
             });
-            products.Add(new Product 
+            products.Add(new Product
             {
                 SkuNumber = "LIG-0002",
                 Created = DateTime.Now,

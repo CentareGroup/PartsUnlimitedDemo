@@ -564,15 +564,11 @@
     </Compile>
     <Compile Include="Hubs\AnnouncementHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\IPartsUnlimitedUserContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Utils\FeatureSwitchFeatureContext.cs" />
     <Compile Include="Utils\IFeatureContext.cs" />
     <Compile Include="Utils\LayoutDataAttribute.cs" />
-    <Compile Include="Utils\PartsUnlimitedDbInitializer.cs" />
-    <Compile Include="Models\PartsUnlimitedContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recommendations\AzureMLFrequentlyBoughtTogetherRecommendationEngine.cs" />
     <Compile Include="Recommendations\IRecommendationEngine.cs" />

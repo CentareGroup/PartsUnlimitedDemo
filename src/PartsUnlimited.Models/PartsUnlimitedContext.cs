@@ -1,8 +1,9 @@
 ﻿using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PartsUnlimited.Models
 {
-    public class PartsUnlimitedContext : DbContext, IPartsUnlimitedContext
+    public class PartsUnlimitedContext : IdentityDbContext<ApplicationUser>, IPartsUnlimitedContext
     {
         public PartsUnlimitedContext()
             : base("name=DefaultConnectionString")

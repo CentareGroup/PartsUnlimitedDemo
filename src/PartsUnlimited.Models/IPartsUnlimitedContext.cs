@@ -15,6 +15,7 @@ namespace PartsUnlimited.Models
         IDbSet<Product> Products { get; }
         IDbSet<Raincheck> RainChecks { get; }
         IDbSet<Store> Stores { get; }
+        IDbSet<ApplicationUser> Users { get; }
 
         Task<int> SaveChangesAsync(CancellationToken requestAborted);
         DbEntityEntry Entry(object entity);
