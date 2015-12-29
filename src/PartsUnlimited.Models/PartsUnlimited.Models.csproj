@@ -84,7 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Deployment\Deploy.ps1" />
     <None Include="packages.config" />
+    <None Include="PartsUnlimited.Models.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508031842173_InitialCreate.resx">

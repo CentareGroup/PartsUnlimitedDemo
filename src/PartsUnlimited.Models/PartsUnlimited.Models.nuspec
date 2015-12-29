@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PartsUnlimited.Models</id>
+    <title>PartsUnlimited.Models</title>
+    <version>$version$</version>
+    <authors>Centare</authors>
+    <owners>Centare</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Parts Unlimited Web Application Database Package</description>
+  </metadata>
+  <files>
+    <file src="bin\$Configuration$\*.*" target="" />
+    <file src="..\..\packages\EntityFramework.6.1.3\tools\migrate.exe" target="" />
+    <file src="Deployment\Deploy.ps1" target="" />
+  </files>
+</package>
