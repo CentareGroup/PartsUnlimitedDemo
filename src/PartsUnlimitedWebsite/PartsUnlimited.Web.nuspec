@@ -15,5 +15,8 @@
     <file src="*Qa.config" target="" />
     <file src="*Uat.config" target="" />
     <file src="*Prod.config" target="" />
+    <!-- Packaging for web jobs -->
+    <file src="..\PartsUnlimited.WebJob.ProcessOrder\bin\$Configuration$\**\*.*" target="app_data\jobs\continuous\ProcessOrder" />
+    <file src="..\PartsUnlimited.WebJobs.UpdateProductInventory\bin\$Configuration$\**\*.*" target="app_data\jobs\triggered\UpdateProductInventory" />
   </files>
 </package>
