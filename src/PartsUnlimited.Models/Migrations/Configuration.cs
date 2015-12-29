@@ -309,9 +309,12 @@ namespace PartsUnlimited.Models.Migrations
             context.Stores.AddOrUpdate(x => x.Name, stores.ToArray());
             context.SaveChanges();
 
-            var rainchecks = GetRainchecks(stores, products);
-            context.RainChecks.AddOrUpdate(x => x.StoreId, rainchecks.ToArray());
-            context.SaveChanges();
+            if (!context.RainChecks.Any())
+            {
+                var rainchecks = GetRainchecks(stores, products);
+                context.RainChecks.AddOrUpdate(x => x.StoreId, rainchecks.ToArray());
+                context.SaveChanges();
+            }
         }
 
         /// <summary>
