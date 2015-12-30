@@ -93,7 +93,7 @@
     "variables": {
         "imagePublisher": "Canonical",
         "imageOffer": "UbuntuServer",
-        "ubuntuOSVersion": "14.04.2-LTS",
+        "ubuntuOSVersion": "14.04.3-LTS",
         "OSDiskName": "osdiskformrp",
         "nicName": "myVMNic",
         "addressPrefix": "10.0.0.0/16",
@@ -255,59 +255,68 @@
                 "osProfile": {
                     "computername": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[variables('imagePublisher')]",
-                        "offer": "[variables('imageOffer')]",
-                        "sku": "[variables('ubuntuOSVersion')]",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "name": "osdisk1",
-                        "vhd": {
-                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-                        },
-                        "caching": "ReadWrite",
-                        "createOption": "FromImage"
-                    }
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": "true",
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                                    "keyData": "[concat('ssh-rsa ', parameters('adminPassword'))]"
+                                }
+                            ]
                         }
-                    ]
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/', 'chefExtension')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Chef.Bootstrap.WindowsAzure",
-                "type": "ChefClient",
-                "typeHandlerVersion": "1210.12",
-                "settings": {
-                    "bootstrap_options": {
-                        "chef_node_name": "[variables('vmName')]",
-                        "chef_server_url": "[parameters('chef_server_url')]",
-                        "validation_client_name": "[parameters('validation_client_name')]",
-                        "secret": "[parameters('databag_secret')]"
                     },
-                    "client_rb": "[parameters('client_rb')]",
-                    "runlist": "recipe[mrpapp-idempotent]"
-                },
-                "protectedSettings": {
-                    "validation_key": "[parameters('validation_key')]"
+                    "storageProfile": {
+                        "imageReference": {
+                            "publisher": "[variables('imagePublisher')]",
+                            "offer": "[variables('imageOffer')]",
+                            "sku": "[variables('ubuntuOSVersion')]",
+                            "version": "latest"
+                        },
+                        "osDisk": {
+                            "name": "osdisk1",
+                            "vhd": {
+                                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                            },
+                            "caching": "ReadWrite",
+                            "createOption": "FromImage"
+                        }
+                    },
+                    "networkProfile": {
+                        "networkInterfaces": [
+                            {
+                                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Microsoft.Compute/virtualMachines/extensions",
+                "name": "[concat(variables('vmName'),'/', 'chefExtension')]",
+                "apiVersion": "2015-05-01-preview",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+                ],
+                "properties": {
+                    "publisher": "Chef.Bootstrap.WindowsAzure",
+                    "type": "ChefClient",
+                    "typeHandlerVersion": "1210.12",
+                    "settings": {
+                        "bootstrap_options": {
+                            "chef_node_name": "[variables('vmName')]",
+                            "chef_server_url": "[parameters('chef_server_url')]",
+                            "validation_client_name": "[parameters('validation_client_name')]",
+                            "secret": "[parameters('databag_secret')]"
+                        },
+                        "client_rb": "[parameters('client_rb')]",
+                        "runlist": "recipe[mrpapp-idempotent]"
+                    },
+                    "protectedSettings": {
+                        "validation_key": "[parameters('validation_key')]"
+                    }
                 }
             }
-        }
-    ]
-}
+        ]
+    }
