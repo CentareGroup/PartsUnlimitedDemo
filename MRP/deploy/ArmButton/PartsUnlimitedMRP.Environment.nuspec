@@ -10,6 +10,6 @@
     <description>Parts Unlimited MRP Environment ARM Template Package</description>
   </metadata>
   <files>
-    <file src="azuredeploy.*.json" target="" />
+    <file src="azuredeploy*.json" target="" />
   </files>
 </package>
