@@ -283,7 +283,7 @@
                 "typeHandlerVersion": "1210.12",
                 "settings": {
                     "bootstrap_options": {
-                        "chef_node_name": "[variables('vmName'))]",
+                        "chef_node_name": "[variables('vmName')]",
                         "chef_server_url": "[parameters('chef_server_url')]",
                         "validation_client_name": "[parameters('validation_client_name')]",
                         "secret": "[parameters('databag_secret')]"
