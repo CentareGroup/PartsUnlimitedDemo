@@ -9,6 +9,9 @@
     "location": {
       "value": "East US"
     },
+    "storageLocation": {
+      "value": "West US"
+    },
     "adminUsername": {
       "value": "centare"
     },
