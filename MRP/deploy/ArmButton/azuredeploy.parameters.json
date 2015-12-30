@@ -1,0 +1,35 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "newStorageAccountName": {
+      "value": "partsunlimitedmrp"
+      //ensure all lowercase letters, numbers, no special characters
+    },
+    "location": {
+      "value": "East US"
+    },
+    "adminUsername": {
+      "value": "centare"
+    },
+    "adminPassword": {
+      "value": "C3nt@r3!"
+    },
+    "dnsNameForPublicIP": {
+      "value": "centaremrp"
+    },
+    "databag_secret": {
+      "value": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAxF/am+RdNsIY/Nxq9ZLS11YT4LiBQcyklkcAL/WxwBmqXqVr\nv1D336UQQ1Ni+s2t4dHq/kBR7N4etQmxtF8Pt4yNv4Qn+o58K+JnfDiu/wZmwOgl\n6tvIqwPIw3v/AZ/3M7TLE9slHUmusnq4EmIznPgT4Ssr40b2HTYgcTEgsJblNMZH\nnDcP9BrXtlkR1NwUx6K4OAye8OUynCA0RSwOLeWjedNfpFUvKLib/LBbbyb3Q49b\nGHMOtYD+TN+xJpWvOghS41zhyavq4SR1xLk1PjNVei3o7O2VvYOJvQIOVfim1qY/\nBNgNkAKLeoed8OkhRfuFhjr6pfCC2n09pJmdcwIDAQABAoIBAQCjIq5NS41UbDKt\n/b6te+fEFDI3QY+/xe4FGb7CGO4tlCTAs9Oq/+yr0kiMZb2YdT26l9UMmwp0KKKB\n6yfBnCdGaHFpZLSBpdTp8A/gVoaqPfsmzrSRQzyVNXOXUm8qPmXygoMiX6+ZgRis\nFN7OBt6xzDVXnbG8Abt70PdqkVGC4KI9YSvgDz7dV0zGJBZ1d+ZHaYFs+MKtMli/\nA7uSMvli59QyWmaDiIdbRCCURlVJ1hbJZV/r9tIaVu4Zw18uos7DnC/vdC44A4ES\n7JLiSv9lDEibOXPoSRWQTxU7mdlsf5BUp3OUSEuO0B33+Mk7WsR9JjfUD9PttuKY\n5kLlfS7hAoGBAPWXRt78OQEh+wP6uaDYMbNI0B/h8YWUuqTiLsQAjknvdNBSghUa\n8CxJFk4fb4WoY8swHNJQWrTJUrw8bWjuS7WAsVSAee4duPst+UFM1X0wDcziZKr/\nTKNcmPZjhTceyo2lnJt54v+DJ1y+/Uo7LlWvYDbcZKTcRfFC2Z+pwz0tAoGBAMyy\nkNaNxXMt4UK7mZbSbgaxLGtt41pVY/KNI7N2CFYhlULAevKPpLhf8l80Ik1DzZH7\nWmp00VvkWgEPN4oO8F23aFF7rOONUihgcSnUAPoNrYwrNv4Vqry7D8CbypIVfV8e\nroe+z/czynoie+7XGHrwSnIbO/Tceu0AdC75bSkfAoGBAJPNsXdt8Ji/7KQedy1Y\nL8EopykpAARW2GV3QpHvi7LvjCv8HBG7nqPocKYfwSx9hWG52P6yIYUATOzAqVAn\naiUYCKFEmR03giaZKpOkPDAVhZiy/8bx0xvWFLDkgD4GJ/1LmI7xsi34ru3ge+v6\n5g3neE5MIb4eW3Gxu+udbcUZAoGATS3Omnbdya20zzp4kHtK7M8EloTaQgcMJjm9\nCj8oqYEEDCUStj4etz3F3suDW2qDKdWBo73j6ifRH7EjGbTEQDGU7ZQZ/bodDgg+\n4qyCqcVaeA0bMPXuaDaHm/GhkS71FFY3LAtv0h7+6snxvH3xRvkuuJM4KfyvhIi1\nRbjZxbUCgYARZe69OzpgRAgeggRcfY3P9ckqG6zpbXG9/feJe3yA59kcPbYAVzaI\nurWy7glU9q7HNOtqjzjtA2GOiapQtEQWMHGALZx9V+i56nteDC1YtDfFAMKekbYG\ncf9dXhCxxOC3SLHmPMvzD6ykOBg7/XWnaP1ecotIEwYSLsA2eMigyw==\n-----END RSA PRIVATE KEY-----"
+    },
+    "validation_key": {
+      "value": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAxF/am+RdNsIY/Nxq9ZLS11YT4LiBQcyklkcAL/WxwBmqXqVr\nv1D336UQQ1Ni+s2t4dHq/kBR7N4etQmxtF8Pt4yNv4Qn+o58K+JnfDiu/wZmwOgl\n6tvIqwPIw3v/AZ/3M7TLE9slHUmusnq4EmIznPgT4Ssr40b2HTYgcTEgsJblNMZH\nnDcP9BrXtlkR1NwUx6K4OAye8OUynCA0RSwOLeWjedNfpFUvKLib/LBbbyb3Q49b\nGHMOtYD+TN+xJpWvOghS41zhyavq4SR1xLk1PjNVei3o7O2VvYOJvQIOVfim1qY/\nBNgNkAKLeoed8OkhRfuFhjr6pfCC2n09pJmdcwIDAQABAoIBAQCjIq5NS41UbDKt\n/b6te+fEFDI3QY+/xe4FGb7CGO4tlCTAs9Oq/+yr0kiMZb2YdT26l9UMmwp0KKKB\n6yfBnCdGaHFpZLSBpdTp8A/gVoaqPfsmzrSRQzyVNXOXUm8qPmXygoMiX6+ZgRis\nFN7OBt6xzDVXnbG8Abt70PdqkVGC4KI9YSvgDz7dV0zGJBZ1d+ZHaYFs+MKtMli/\nA7uSMvli59QyWmaDiIdbRCCURlVJ1hbJZV/r9tIaVu4Zw18uos7DnC/vdC44A4ES\n7JLiSv9lDEibOXPoSRWQTxU7mdlsf5BUp3OUSEuO0B33+Mk7WsR9JjfUD9PttuKY\n5kLlfS7hAoGBAPWXRt78OQEh+wP6uaDYMbNI0B/h8YWUuqTiLsQAjknvdNBSghUa\n8CxJFk4fb4WoY8swHNJQWrTJUrw8bWjuS7WAsVSAee4duPst+UFM1X0wDcziZKr/\nTKNcmPZjhTceyo2lnJt54v+DJ1y+/Uo7LlWvYDbcZKTcRfFC2Z+pwz0tAoGBAMyy\nkNaNxXMt4UK7mZbSbgaxLGtt41pVY/KNI7N2CFYhlULAevKPpLhf8l80Ik1DzZH7\nWmp00VvkWgEPN4oO8F23aFF7rOONUihgcSnUAPoNrYwrNv4Vqry7D8CbypIVfV8e\nroe+z/czynoie+7XGHrwSnIbO/Tceu0AdC75bSkfAoGBAJPNsXdt8Ji/7KQedy1Y\nL8EopykpAARW2GV3QpHvi7LvjCv8HBG7nqPocKYfwSx9hWG52P6yIYUATOzAqVAn\naiUYCKFEmR03giaZKpOkPDAVhZiy/8bx0xvWFLDkgD4GJ/1LmI7xsi34ru3ge+v6\n5g3neE5MIb4eW3Gxu+udbcUZAoGATS3Omnbdya20zzp4kHtK7M8EloTaQgcMJjm9\nCj8oqYEEDCUStj4etz3F3suDW2qDKdWBo73j6ifRH7EjGbTEQDGU7ZQZ/bodDgg+\n4qyCqcVaeA0bMPXuaDaHm/GhkS71FFY3LAtv0h7+6snxvH3xRvkuuJM4KfyvhIi1\nRbjZxbUCgYARZe69OzpgRAgeggRcfY3P9ckqG6zpbXG9/feJe3yA59kcPbYAVzaI\nurWy7glU9q7HNOtqjzjtA2GOiapQtEQWMHGALZx9V+i56nteDC1YtDfFAMKekbYG\ncf9dXhCxxOC3SLHmPMvzD6ykOBg7/XWnaP1ecotIEwYSLsA2eMigyw==\n-----END RSA PRIVATE KEY-----"
+    },
+    "chef_server_url": {
+      "value": "https://api.opscode.com/organizations/centare"
+    },
+    "validation_client_name": {
+      "value": "centare-validator"
+    }
+  }
+}
+
