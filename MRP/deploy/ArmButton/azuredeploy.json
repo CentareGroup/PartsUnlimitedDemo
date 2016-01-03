@@ -269,10 +269,10 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "[variables('imagePublisher')]",
-                        "offer": "[variables('imageOffer')]",
-                        "sku": "[variables('ubuntuOSVersion')]",
-                        "version": "14.04.201512180"
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "14.04.3-LTS",
+                        "version": "latest"
                     },
                     "osDisk": {
                         "name": "osdisk1",
