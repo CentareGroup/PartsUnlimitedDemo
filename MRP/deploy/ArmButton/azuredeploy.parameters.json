@@ -13,6 +13,9 @@
       "value": "centare"
     },
     "adminPassword": {
+        "value": "C3nt@r3!"
+    },
+    "adminPublicKey": {
       "value": "AAAAB3NzaC1yc2EAAAABJQAAAQEAvB9ci5uz4Y1DSxzgBF/Yihx9vOebBHZtLCT0gN3y0t003if1GSI+HYU+obRr9YGMm8MUno/4TphpO1x6UtKjGV3YDHOntR+SOxXyxRFBDutN7fg4TPMUFL2E/S4VcrHunj6Hr92Hx56ctN6+xWVfSFr+G0s+5nZKlZnRtUJtPNUhrQaF5J44P8PfLJweLywQwqYu9I2FijB9jjHbCon8qg+RL/0+2FjTVTM7Hw4ldNSxhFFOCbRpvDaaNarCGSDuhknogkvSXEXryQlCqs4hCHAklUVpMKif+u6KRwM1O/eu+K0hdHVyRbiULe5QLA85m3fwTKupqc3WPcsr9HKlUw=="
     },
     "dnsNameForPublicIP": {

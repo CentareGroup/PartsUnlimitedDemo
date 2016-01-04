@@ -33,6 +33,12 @@
                 "description": "Password for the Virtual Machine."
             }
         },
+        "adminPublicKey": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
@@ -240,15 +246,16 @@
                     "vmSize": "[variables('vmSize')]"
                 },
                 "osProfile": {
-                    "computername": "[variables('vmName')]",
+                    "computerName": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]",
                     "linuxConfiguration": {
-                        "disablePasswordAuthentication": "true",
+                        "disablePasswordAuthentication": "false",
                         "ssh": {
                             "publicKeys": [
                                 {
                                     "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                                    "keyData": "[concat('ssh-rsa ', parameters('adminPassword'))]"
+                                    "keyData": "[concat('ssh-rsa ', parameters('adminPublicKey'))]"
                                 }
                             ]
                         }
