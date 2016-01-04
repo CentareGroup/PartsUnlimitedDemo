@@ -10,7 +10,7 @@
     <description>Parts Unlimited MRP Order Service Package</description>
   </metadata>
   <files>
-    <file src="src\Backend\OrderService\build\libs\ordering-service-*.jar" target="" />
-    <file src="deploy\MongoRecords.js" target="" />
+    <file src="..\src\Backend\OrderService\build\libs\ordering-service-*.jar" target="" />
+    <file src="MongoRecords.js" target="" />
   </files>
 </package>

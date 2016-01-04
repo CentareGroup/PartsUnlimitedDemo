@@ -10,6 +10,6 @@
     <description>Parts Unlimited MRP Tomcat Web Application Package</description>
   </metadata>
   <files>
-    <file src="src\Clients\build\libs\mrp.war" target="" />
+    <file src="..\src\Clients\build\libs\mrp.war" target="" />
   </files>
 </package>
