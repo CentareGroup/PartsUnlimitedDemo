@@ -16,11 +16,3 @@ end
 apt_package 'tar' do
   action :install
 end
-
-apt_package 'base64' do
-  action :install
-end
-
-apt_package 'grep' do
-  action :install
-end
