@@ -11,5 +11,6 @@
   </metadata>
   <files>
     <file src="..\src\Backend\IntegrationService\build\libs\integration-service-*.jar" target="" />
+    <file src="..\src\Backend\IntegrationService\application.properties" target="" />
   </files>
 </package>
