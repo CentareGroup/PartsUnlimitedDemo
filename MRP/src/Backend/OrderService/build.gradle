@@ -25,7 +25,8 @@ jar {
     baseName = 'ordering-service'
     version = '0.1.0'
     manifest {
-        attributes 'Main-Class': 'smpl.ordering.OrderingConfiguration'
+        attributes 'Start-Class': 'smpl.ordering.OrderingConfiguration'
+        attributes 'Main-Class': 'org.springframework.boot.loader.JarLauncher'
     }
 }
 
