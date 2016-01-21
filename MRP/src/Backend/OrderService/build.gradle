@@ -24,6 +24,7 @@ apply plugin: 'spring-boot'
 jar {
     baseName = 'ordering-service'
     version = '0.1.0'
+    manifest.attributes("Main-Class": "smpl.ordering.OrderingConfiguration")
 }
 
 
