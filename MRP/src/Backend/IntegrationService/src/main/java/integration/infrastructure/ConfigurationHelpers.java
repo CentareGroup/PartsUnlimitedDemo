@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,17 +14,7 @@ import java.io.InputStream;
  * The ConfigurationHelpers class is responsible for abstracting the logic of getting property types based on property names.
  */
 public class ConfigurationHelpers {
-//    private final static Logger log = MakeLogger();
-//     private static Logger MakeLogger(){
-//         try{
-//             return LoggerFactory.getLogger(ConfigurationHelpers.class);
-//         }
-//         catch(Exception ex)
-//         {
-//             return null;
-//         }
-//     }
-
+    private final static Logger log = LoggerFactory.getLogger(ConfigurationHelpers.class);
 
     public static String getString(String name) {
         try {
@@ -58,13 +50,30 @@ public class ConfigurationHelpers {
     private static Properties getPropValues(String propFileName) throws IOException {
 
         Properties props = new Properties();
+        
+        log.info("Checking For System Property File Argument: " + propFileName);
+        String propPath = System.getProperty(propFileName);
+        
 
-        ClassLoader classLoader = ConfigurationHelpers.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(propFileName);
+        if (propPath != null && new File(propPath).isFile()) {
+            final FileInputStream in = new FileInputStream(propPath);
+            log.info("Loading System Property File: " + propPath);
 
-        props.load(inputStream);
-        if (inputStream == null) {
-            throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            try {
+                props.load(in);
+            }
+            finally {
+                in.close();
+            }
+        }
+        else {
+            ClassLoader classLoader = ConfigurationHelpers.class.getClassLoader();
+            InputStream inputStream = classLoader.getResourceAsStream(propFileName);
+
+            props.load(inputStream);
+            if (inputStream == null) {
+                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            }
         }
 
         return props;
