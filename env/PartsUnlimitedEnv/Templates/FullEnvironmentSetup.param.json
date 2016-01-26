@@ -28,6 +28,12 @@
         },
         "CdnStorageContainerNameForStaging": {
             "value": "cdnstage"
+        },
+        "_artifactsLocation": {
+            "value": "" 
+        },
+        "_artifactsLocationSasToken": {
+            "value": ""
         }
     }
 }
