@@ -3,31 +3,31 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "WebsiteName": {
-            "value": ""
+            "value": "centpartsunlimited"
         },
         "PartsUnlimitedServerName": {
-            "value": ""
+            "value": "partsunlimitedsql"
         },
         "PartsUnlimitedHostingPlanName": {
-            "value": ""
+            "value": "Standard"
         },
         "CdnStorageAccountName": {
-            "value": ""
+            "value": "partsunlimitedmrp"
         },
         "CdnStorageContainerName": {
-            "value": ""
+            "value": "cdn"
         },
         "CdnStorageAccountNameForDev": {
-            "value": ""
+            "value": "partsunlimitedmrp"
         },
         "CdnStorageContainerNameForDev": {
-            "value": ""
+            "value": "cdndev"
         },
         "CdnStorageAccountNameForStaging": {
-            "value": ""
+            "value": "partsunlimitedmrp"
         },
         "CdnStorageContainerNameForStaging": {
-            "value": ""
+            "value": "cdnstage"
         }
     }
 }
