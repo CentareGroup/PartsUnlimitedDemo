@@ -44,6 +44,9 @@
       }
     }
   },
+  "variables": {
+    "serverResourceId": "[resourceId('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))]"
+  },
   "resources": [
     {
       "name": "[parameters('PartsUnlimitedDBName')]",
@@ -51,7 +54,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
       "dependsOn": [
-        "[parameters('PartsUnlimitedServerName')]"
+        "[variables('serverResourceId')]"
       ],
       "tags": {
         "displayName": "PartsUnlimitedDB"
@@ -61,7 +64,7 @@
         "edition": "[parameters('PartsUnlimitedDBEdition')]",
         "maxSizeBytes": "1073741824",
         "requestedServiceObjectiveName": "[parameters('RequestedServiceObjectiveName')]",
-        "sourceDatabaseId": "[resourceId('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))]"
+        "sourceDatabaseId": "[variables('serverResourceId')]"
       }
     }
   ],
