@@ -32,12 +32,11 @@
     <Content Include="Scripts\Install-AzCopy.ps1" />
     <Content Include="Scripts\New-CdnStorageContainer.psm1" />
     <Content Include="Templates\AppInsights.json" />
-    <Content Include="Templates\DemoEnvironmentSetup.json" />
-    <Content Include="Templates\DemoEnvironmentSetup.param.json" />
     <Content Include="Templates\FullEnvironmentSetup.json" />
     <Content Include="Templates\FullEnvironmentSetup.param.json" />
     <Content Include="Templates\HostingPlanAndRules.json" />
-    <Content Include="Templates\SqlServerAndDb.json" />
+    <Content Include="Templates\SqlServerDb.json" />
+    <Content Include="Templates\SqlServer.json" />
     <Content Include="Templates\Website.json" />
     <Content Include="Templates\WebsiteRules.json" />
     <Content Include="Templates\WebsiteWithTwoSlots.json" />

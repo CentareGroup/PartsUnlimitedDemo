@@ -1,0 +1,46 @@
+﻿{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "PartsUnlimitedServerName": {
+            "type": "string"
+        },
+        "PartsUnlimitedServerAdminLogin": {
+            "type": "string"
+        },
+        "PartsUnlimitedServerAdminLoginPassword": {
+            "type": "securestring"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('PartsUnlimitedServerName')]",
+            "type": "Microsoft.Sql/servers",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2014-04-01-preview",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "PartsUnlimitedServer"
+            },
+            "properties": {
+                "administratorLogin": "[parameters('PartsUnlimitedServerAdminLogin')]",
+                "administratorLoginPassword": "[parameters('PartsUnlimitedServerAdminLoginPassword')]"
+            },
+            "resources": [
+                {
+                    "name": "[concat('AllowAllIps', parameters('PartsUnlimitedServerName'))]",
+                    "type": "firewallrules",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))]"
+                    ],
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                }
+            ]
+        }
+    ]
+}
