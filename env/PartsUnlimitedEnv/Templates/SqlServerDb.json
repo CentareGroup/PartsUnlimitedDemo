@@ -71,7 +71,7 @@
   "outputs": {
     "connectionString": {
       "type": "string",
-      "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('PartsUnlimitedDBName'), ';User Id=', parameters('PartsUnlimitedServerAdminLogin'), '@', parameters('PartsUnlimitedServerName'), ';Password=', parameters('PartsUnlimitedServerAdminLoginPassword'), ';')]"
+      "value": "[concat('Data Source=tcp:', reference(variables('serverResourceId')).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('PartsUnlimitedDBName'), ';User Id=', parameters('PartsUnlimitedServerAdminLogin'), '@', parameters('PartsUnlimitedServerName'), ';Password=', parameters('PartsUnlimitedServerAdminLoginPassword'), ';')]"
     }
   }
 }
