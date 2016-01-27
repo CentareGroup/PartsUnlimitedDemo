@@ -86,11 +86,11 @@
         }
     },
     "variables": {
-        "sqlServerAndDbTemplateFile": "PartsUnlimited.Environment/Templates/SqlServerAndDb.json",
-        "appInsightsTemplateFile": "PartsUnlimited.Environment/Templates/AppInsights.json",
-        "hostingPlanTemplateFile": "PartsUnlimited.Environment/Templates/HostingPlanAndRules.json",
-        "websiteTemplateFile": "PartsUnlimited.Environment/Templates/WebsiteWithTwoSlots.json",
-        "websiteRulesTemplateFile": "PartsUnlimited.Environment/Templates/WebsiteRules.json"
+        "sqlServerAndDbTemplateFile": "SqlServerAndDb.json",
+        "appInsightsTemplateFile": "AppInsights.json",
+        "hostingPlanTemplateFile": "HostingPlanAndRules.json",
+        "websiteTemplateFile": "WebsiteWithTwoSlots.json",
+        "websiteRulesTemplateFile": "WebsiteRules.json"
     },
     "resources": [
         {
@@ -123,14 +123,14 @@
                     "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerAndDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {
-                    "PartsUnlimitedServerName": { "value": "[concat(parameters('PartsUnlimitedServerName'), 'dev')]" },
-                    "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-                    "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPasswordForTest')]" },
-                    "PartsUnlimitedDBName": { "value": "[parameters('PartsUnlimitedDBName')]" },
-                    "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-                    "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
-                }
+              "parameters": {
+                "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
+                "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
+                "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
+                "PartsUnlimitedDBName": { "value": "[concat(parameters('PartsUnlimitedDBName'), '-Dev')]" },
+                "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
+                "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
+              }
             }
         },
         {
@@ -143,14 +143,14 @@
                     "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerAndDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {
-                    "PartsUnlimitedServerName": { "value": "[concat(parameters('PartsUnlimitedServerName'), 'stage')]" },
-                    "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-                    "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPasswordForTest')]" },
-                    "PartsUnlimitedDBName": { "value": "[parameters('PartsUnlimitedDBName')]" },
-                    "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-                    "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
-                }
+              "parameters": {
+                "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
+                "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
+                "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
+                "PartsUnlimitedDBName": { "value": "[concat(parameters('PartsUnlimitedDBName'), '-Stage')]" },
+                "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
+                "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
+              }
             }
         },
         {
