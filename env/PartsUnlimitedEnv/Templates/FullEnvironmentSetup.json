@@ -110,6 +110,9 @@
       "name": "SqlServerDb",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/SqlServer"
+      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -130,6 +133,9 @@
       "name": "SqlServerDb-Dev",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/SqlServer"
+      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -150,10 +156,13 @@
       "name": "SqlServerDb-Stage",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/SqlServer"
+      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerTemplateFile'), parameters('_artifactsLocationSasToken'))]",
+          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -235,7 +244,6 @@
       "apiVersion": "2015-01-01",
       "dependsOn": [
         "Microsoft.Resources/deployments/HostingPlan",
-        "Microsoft.Resources/deployments/SqlServer",
         "Microsoft.Resources/deployments/SqlServerDb",
         "Microsoft.Resources/deployments/SqlServerDb-Dev",
         "Microsoft.Resources/deployments/SqlServerDb-Stage",
