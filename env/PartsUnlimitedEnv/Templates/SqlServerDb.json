@@ -53,9 +53,6 @@
       "type": "Microsoft.Sql/servers/databases",
       "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
-      "dependsOn": [
-        "[variables('serverResourceId')]"
-      ],
       "tags": {
         "displayName": "PartsUnlimitedDB"
       },
