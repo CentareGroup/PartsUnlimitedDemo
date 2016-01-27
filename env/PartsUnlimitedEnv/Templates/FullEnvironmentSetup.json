@@ -102,10 +102,7 @@
         "parameters": {
           "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
           "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
-          "PartsUnlimitedDBName": { "value": "[parameters('PartsUnlimitedDBName')]" },
-          "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-          "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
+          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" }
         }
       }
     },
