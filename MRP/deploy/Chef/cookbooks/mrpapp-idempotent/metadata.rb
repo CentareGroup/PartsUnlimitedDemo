@@ -1,8 +1,10 @@
-name             'mrpapp-idempotent'
-maintainer       'The Authors'
+name 'mrpapp-idempotent'
+maintainer 'The Authors'
 maintainer_email 'you@example.com'
-license          'all_rights'
-description      'Installs/Configures mrpapp'
-long_description 'Installs/Configures mrpapp'
-version          '0.1.0'
-depends "apt"
+license 'all_rights'
+description 'Installs/Configures mrp application server'
+long_description 'Installs/Configures mrp application server'
+version '0.2.1'
+
+depends 'apt'
+depends 'tomcat', '= 1.0.1'
