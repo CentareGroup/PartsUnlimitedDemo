@@ -306,7 +306,7 @@
                         "secret": "[parameters('databag_secret')]"
                     },
                     "client_rb": "[parameters('client_rb')]",
-                    "runlist": "recipe[mrpapp-idempotent::server_base]"
+                    "runlist": "role[mrp_application]"
                 },
                 "protectedSettings": {
                     "validation_key": "[parameters('validation_key')]"

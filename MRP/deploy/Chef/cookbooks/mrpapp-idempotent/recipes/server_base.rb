@@ -28,14 +28,7 @@ ENV['JAVA_HOME'] = base_path
 ENV['PATH'] = "#{ENV['PATH']}:#{base_path}/bin"
 
 # Install MongoDB
-apt_package 'mongodb' do
-  action :install
-end
+include_recipe 'mongodb'
 
 # Install Tomcat 7
 include_recipe 'tomcat'
-
-# Ensure Tomcat is running
-service 'tomcat7' do
-  action :start
-end
