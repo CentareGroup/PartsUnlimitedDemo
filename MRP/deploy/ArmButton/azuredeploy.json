@@ -288,7 +288,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/', 'chefExtension')]",
+            "name": "[concat(variables('vmName'), '/', 'chefExtension')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -319,9 +319,7 @@
             "apiVersion": "2015-05-01-preview",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
-                "[concat(variables('vmName'), '/', 'chefExtension')]"
-                
+                "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('vmName'), 'chefExtension')]"
             ],
             "properties": {
                 "publisher": "Microsoft.OSTCExtensions",
@@ -330,7 +328,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [],
-                    "commandToExecute": "bash -c \"while true; do [ ! -f /var/chef/cache/chef-client-running.pid ] && echo Chef Run Complete && break; echo Chef Running, waiting 20s to complete;  sleep 20; done\""
+                    "commandToExecute": "bash -c \"while true; do [ ! -e /proc/$(cat /var/chef/cache/chef-client-running.pid) ] && echo Chef Run Complete && break; echo Chef Running, waiting 20s to complete;  sleep 20; done\""
                 }
             }
         }
