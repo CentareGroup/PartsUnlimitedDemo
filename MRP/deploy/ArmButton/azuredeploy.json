@@ -288,7 +288,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/', 'chefExtension')]",
+            "name": "[concat(variables('vmName'), '/', 'chefExtension')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -319,9 +319,7 @@
             "apiVersion": "2015-05-01-preview",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'), '/chefExtension')]"
-                
+                "[concat('Microsoft.Compute/virtualMachines/extensions/', variables('vmName'), '/chefExtension')]"
             ],
             "properties": {
                 "publisher": "Microsoft.OSTCExtensions",
