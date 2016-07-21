@@ -1,8 +1,8 @@
-default['java']['install_flavor'] = 'openjdk'
-default['java']['jdk_version'] = '7'
+override['java']['install_flavor'] = 'openjdk'
+override['java']['jdk_version'] = '7'
 
-default['tomcat']['run_base_instance'] = false
-default['tomcat']['base_version'] = 7
+override['tomcat']['run_base_instance'] = false
+override['tomcat']['base_version'] = 7
 # default['tomcat']['base_instance'] = 'tomcat7'
 # default['tomcat']['packages'] = ["tomcat#{node['tomcat']['base_version']}"]
 # default['tomcat']['deploy_manager_packages'] = ["tomcat#{node['tomcat']['base_version']}-admin"]
