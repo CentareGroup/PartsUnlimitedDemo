@@ -328,7 +328,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [],
-                    "commandToExecute": "bash -c \"while true; do [ ! -f /var/chef/cache/chef-client-running.pid ] && echo Chef Run Complete && break; echo Chef Running, waiting 20s to complete;  sleep 20; done\""
+                    "commandToExecute": "bash -c \"while true; do [ ! -f /proc/$(cat /var/chef/cache/chef-client-running.pid) ] && echo Chef Run Complete && break; echo Chef Running, waiting 20s to complete;  sleep 20; done\""
                 }
             }
         }
