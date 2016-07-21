@@ -13,5 +13,35 @@ include_recipe 'java'
 # Install MongoDB
 include_recipe 'mongodb'
 
-# Install Tomcat 7
-include_recipe 'tomcat'
+# Setup Tomcat
+mrp_name = 'mrp'
+tomcat_install mrp_name
+
+template "/opt/tomcat_#{mrp_name}/conf/server.xml" do
+  source 'server.xml.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  variables { :port => 9080, :shutdown_port => 8007 }
+  notifies :restart, "tomcat_service[#{mrp_name}]"
+end
+
+tomcat_service mrp_name do
+  action :start
+end
+
+ordersvc_name = 'orderservice'
+tomcat_install ordersvc_name
+
+template "/opt/tomcat_#{ordersvc_name}/conf/server.xml" do
+  source 'server.xml.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  variables { :port => 8080, :shutdown_port => 8006 }
+  notifies :restart, "tomcat_service[#{ordersvc_name}]"
+end
+
+tomcat_service ordersvc_name do
+  action :start
+end
