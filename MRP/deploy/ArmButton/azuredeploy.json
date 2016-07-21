@@ -320,7 +320,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
-                "[concat(variables('vmName'), '/', 'chefExtension')]"
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'), '/chefExtension')]"
                 
             ],
             "properties": {
