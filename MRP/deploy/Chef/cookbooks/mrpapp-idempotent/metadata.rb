@@ -7,5 +7,6 @@ long_description 'Installs/Configures mrp application server'
 version '0.3.3'
 
 depends 'apt'
+depends 'java'
 depends 'tomcat', '~> 2.3.1'
 depends 'mongodb', '~> 0.16.2'
