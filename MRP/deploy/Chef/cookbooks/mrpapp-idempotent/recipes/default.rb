@@ -38,7 +38,7 @@ template "/opt/tomcat_#{ordersvc_name}/conf/server.xml" do
   owner 'root'
   group 'root'
   mode '0644'
-  variables { :port => 8080, :shutdown_port => 8006 }
+  variables (:port => 8080, :shutdown_port => 8006)
   notifies :restart, "tomcat_service[#{ordersvc_name}]"
 end
 
