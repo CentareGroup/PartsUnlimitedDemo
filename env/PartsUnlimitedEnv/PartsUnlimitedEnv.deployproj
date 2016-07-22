@@ -28,18 +28,10 @@
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
-    <Content Include="Scripts\Deploy-AzureResourceGroup.ps1" />
-    <Content Include="Scripts\Install-AzCopy.ps1" />
-    <Content Include="Scripts\New-CdnStorageContainer.psm1" />
-    <Content Include="Templates\AppInsights.json" />
+    <Content Include="Deploy-AzureResourceGroup.ps1" />
+    <Content Include="Templates\FullEnvironmentSetup-Local.param.json" />
     <Content Include="Templates\FullEnvironmentSetup.json" />
     <Content Include="Templates\FullEnvironmentSetup.param.json" />
-    <Content Include="Templates\HostingPlanAndRules.json" />
-    <Content Include="Templates\SqlServerDb.json" />
-    <Content Include="Templates\SqlServer.json" />
-    <Content Include="Templates\Website.json" />
-    <Content Include="Templates\WebsiteRules.json" />
-    <Content Include="Templates\WebsiteWithTwoSlots.json" />
     <None Include="PartsUnlimited.Environment.nuspec" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />

@@ -1,292 +1,374 @@
 ﻿{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "WebsiteName": {
-            "type": "string"
-        },
-        "PartsUnlimitedServerName": {
-            "type": "string"
-        },
-        "PartsUnlimitedServerAdminLogin": {
-            "type": "string",
-            "defaultValue": "AdminUser"
-        },
-        "PartsUnlimitedServerAdminLoginPassword": {
-            "type": "securestring"
-        },
-        "PartsUnlimitedDBName": {
-            "type": "string",
-            "defaultValue": "PartsUnlimitedDB"
-        },
-        "PartsUnlimitedDBCollation": {
-            "type": "string",
-            "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-        },
-        "PartsUnlimitedDBEdition": {
-            "type": "string",
-            "defaultValue": "Basic",
-          "allowedValues": [
-            "Basic",
-            "Standard",
-            "Premium"
-          ]
-        },
-        "PartsUnlimitedHostingPlanName": {
-            "type": "string"
-        },
-        "PartsUnlimitedHostingPlanSKU": {
-            "type": "string",
-            "allowedValues": [
-                "Standard"
-            ],
-            "defaultValue": "Standard"
-        },
-        "PartsUnlimitedHostingPlanWorkerSize": {
-            "type": "string",
-            "allowedValues": [
-                "0",
-                "1",
-                "2"
-            ],
-            "defaultValue": "0"
-        },
-        "EnableRules": {
-            "type": "bool",
-            "defaultValue": false
-        },
-        "CdnStorageAccountName": {
-            "type": "string"
-        },
-        "CdnStorageContainerName": {
-            "type": "string"
-        },
-        "CdnStorageAccountNameForDev": {
-            "type": "string"
-        },
-        "CdnStorageContainerNameForDev": {
-            "type": "string"
-        },
-        "CdnStorageAccountNameForStaging": {
-            "type": "string"
-        },
-        "CdnStorageContainerNameForStaging": {
-            "type": "string"
-        },
-        "_artifactsLocation": {
-            "type": "string"
-        },
-        "_artifactsLocationSasToken": {
-            "type": "securestring"
-        }
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "WebsiteName": {
+      "type": "string"
     },
+    "PartsUnlimitedHostingPlanName": {
+      "type": "string"
+    },
+    "PartsUnlimitedHostingPlanSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard"
+      ],
+      "defaultValue": "Standard"
+    },
+    "PartsUnlimitedHostingPlanWorkerSize": {
+      "type": "string",
+      "allowedValues": [
+        "0",
+        "1",
+        "2"
+      ],
+      "defaultValue": "0"
+    },
+    "PartsUnlimitedServerName": {
+      "type": "string"
+    },
+    "PartsUnlimitedServerAdminLogin": {
+      "type": "string",
+      "defaultValue": "AdminUser"
+    },
+    "PartsUnlimitedServerAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "PartsUnlimitedDBName": {
+      "type": "string",
+      "defaultValue": "PartsUnlimitedDB"
+    },
+    "PartsUnlimitedDBEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "PartsUnlimitedDBServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "EnableRules": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "CdnStorageAccountName": {
+      "type": "string"
+    },
+    "CdnStorageContainerName": {
+      "type": "string"
+    }
+  },
   "variables": {
-    "sqlServerTemplateFile": "SqlServer.json",
-    "sqlServerDbTemplateFile": "SqlServerDb.json",
-    "appInsightsTemplateFile": "AppInsights.json",
-    "hostingPlanTemplateFile": "HostingPlanAndRules.json",
-    "websiteTemplateFile": "WebsiteWithTwoSlots.json",
-    "websiteRulesTemplateFile": "WebsiteRules.json"
+    "dbServerResourceId": "[resourceId('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))]",
+    "appInsightsName": "[concat(parameters('WebsiteName'), 'Insights')]",
+    "cdnProfileName": "[concat(parameters('CdnStorageAccountName'), 'CdnProfile')]"
   },
   "resources": [
     {
-      "name": "SqlServer",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[parameters('CdnStorageAccountName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-01-01",
+      "dependsOn": [],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "name": "[variables('cdnProfileName')]",
+      "type": "Microsoft.Cdn/profiles",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-01",
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
-          "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" }
+        "sku": {
+          "name": "Standard"
         }
       }
     },
     {
-      "name": "SqlServerDb",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[parameters('PartsUnlimitedServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PartsUnlimitedServer"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('PartsUnlimitedServerAdminLogin')]",
+        "administratorLoginPassword": "[parameters('PartsUnlimitedServerAdminLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "[concat('AllowAllIps', parameters('PartsUnlimitedServerName'))]",
+          "type": "firewallrules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('PartsUnlimitedServerName'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[concat(parameters('PartsUnlimitedServerName'), '/', parameters('PartsUnlimitedDBName'))]",
+      "type": "Microsoft.Sql/servers/databases",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
       "dependsOn": [
-        "Microsoft.Resources/deployments/SqlServer"
+        "[variables('dbServerResourceId')]"
       ],
+      "tags": {
+        "displayName": "PartsUnlimitedDB"
+      },
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
-          "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
-          "PartsUnlimitedDBName": { "value": "[parameters('PartsUnlimitedDBName')]" },
-          "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-          "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
-        }
+        "collation": "SQL_Latin1_General_Cp1_CI_AS",
+        "edition": "[parameters('PartsUnlimitedDBEdition')]",
+        "maxSizeBytes": "1073741824",
+        "requestedServiceObjectiveName": "[parameters('PartsUnlimitedDBServiceObjectiveName')]",
+        "sourceDatabaseId": "[variables('dbServerResourceId')]"
       }
     },
     {
-      "name": "SqlServerDb-Dev",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[variables('appInsightsName')]",
+      "type": "Microsoft.Insights/components",
+      "location": "Central US",
+      "apiVersion": "2014-04-01",
+      "tags": {
+        "displayName": "insightsComponents"
+      },
+      "properties": {
+        "ApplicationId": "[parameters('WebsiteName')]"
+      }
+    },
+    {
+      "name": "[parameters('PartsUnlimitedHostingPlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-06-01",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PartsUnlimitedHostingPlan"
+      },
+      "properties": {
+        "name": "[parameters('PartsUnlimitedHostingPlanName')]",
+        "sku": "[parameters('PartsUnlimitedHostingPlanSKU')]",
+        "workerSize": "[parameters('PartsUnlimitedHostingPlanWorkerSize')]",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[concat(parameters('PartsUnlimitedHostingPlanName'), '-', resourceGroup().name)]",
+      "type": "Microsoft.Insights/autoscalesettings",
+      "location": "East US",
+      "apiVersion": "2014-04-01",
       "dependsOn": [
-        "Microsoft.Resources/deployments/SqlServer"
+        "[concat('Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]"
       ],
+      "tags": {
+        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]": "Resource",
+        "displayName": "WebsiteHostingPlanAutoScale"
+      },
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
-          "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
-          "PartsUnlimitedDBName": { "value": "[concat(parameters('PartsUnlimitedDBName'), '-Dev')]" },
-          "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-          "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
-        }
+        "name": "[concat(parameters('PartsUnlimitedHostingPlanName'), '-', resourceGroup().name)]",
+        "profiles": [
+          {
+            "name": "Default",
+            "capacity": {
+              "minimum": 1,
+              "maximum": 4,
+              "default": 1
+            },
+            "rules": [
+              {
+                "metricTrigger": {
+                  "metricName": "CpuPercentage",
+                  "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT10M",
+                  "timeAggregation": "Average",
+                  "operator": "GreaterThan",
+                  "threshold": 80
+                },
+                "scaleAction": {
+                  "direction": "Increase",
+                  "type": "ChangeCount",
+                  "value": 1,
+                  "cooldown": "PT10M"
+                }
+              },
+              {
+                "metricTrigger": {
+                  "metricName": "CpuPercentage",
+                  "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT1H",
+                  "timeAggregation": "Average",
+                  "operator": "LessThan",
+                  "threshold": 60
+                },
+                "scaleAction": {
+                  "direction": "Decrease",
+                  "type": "ChangeCount",
+                  "value": 1,
+                  "cooldown": "PT1H"
+                }
+              }
+            ]
+          }
+        ],
+        "enabled": "[parameters('EnableRules')]",
+        "targetResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]"
       }
     },
     {
-      "name": "SqlServerDb-Stage",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[concat('CPUHigh ', parameters('PartsUnlimitedHostingPlanName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "East US",
+      "apiVersion": "2014-04-01",
       "dependsOn": [
-        "Microsoft.Resources/deployments/SqlServer"
+        "[concat('Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]"
       ],
+      "tags": {
+        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]": "Resource",
+        "displayName": "WebsiteHostingPlanAlertRuleCPUHigh"
+      },
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
+        "name": "[concat('CPUHigh ', parameters('PartsUnlimitedHostingPlanName'))]",
+        "description": "[concat('The average CPU is high across all the instances of ', parameters('PartsUnlimitedHostingPlanName'))]",
+        "isEnabled": "[parameters('EnableRules')]",
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]",
+            "metricName": "CpuPercentage"
+          },
+          "operator": "GreaterThan",
+          "threshold": 90,
+          "windowSize": "PT15M"
         },
-        "parameters": {
-          "PartsUnlimitedServerName": { "value": "[parameters('PartsUnlimitedServerName')]" },
-          "PartsUnlimitedServerAdminLogin": { "value": "[parameters('PartsUnlimitedServerAdminLogin')]" },
-          "PartsUnlimitedServerAdminLoginPassword": { "value": "[parameters('PartsUnlimitedServerAdminLoginPassword')]" },
-          "PartsUnlimitedDBName": { "value": "[concat(parameters('PartsUnlimitedDBName'), '-Stage')]" },
-          "PartsUnlimitedDBCollation": { "value": "[parameters('PartsUnlimitedDBCollation')]" },
-          "PartsUnlimitedDBEdition": { "value": "[parameters('PartsUnlimitedDBEdition')]" }
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": []
         }
       }
     },
     {
-      "name": "AppInsights",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "WebsiteName": { "value": "[parameters('WebsiteName')]" }
-        }
-      }
-    },
-    {
-      "name": "AppInsights-Dev",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "WebsiteName": { "value": "[concat(parameters('WebsiteName'), '-Dev')]" }
-        }
-      }
-    },
-    {
-      "name": "AppInsights-Stage",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "WebsiteName": { "value": "[concat(parameters('WebsiteName'), '-Staging')]" }
-        }
-      }
-    },
-    {
-      "name": "HostingPlan",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('hostingPlanTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "PartsUnlimitedHostingPlanName": { "value": "[parameters('PartsUnlimitedHostingPlanName')]" },
-          "PartsUnlimitedHostingPlanSKU": { "value": "[parameters('PartsUnlimitedHostingPlanSKU')]" },
-          "PartsUnlimitedHostingPlanWorkerSize": { "value": "[parameters('PartsUnlimitedHostingPlanWorkerSize')]" },
-          "EnableRules": { "value": "[parameters('EnableRules')]" }
-        }
-      }
-    },
-    {
-      "name": "Website",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[concat('LongHttpQueue ', parameters('PartsUnlimitedHostingPlanName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "East US",
+      "apiVersion": "2014-04-01",
       "dependsOn": [
-        "Microsoft.Resources/deployments/HostingPlan",
-        "Microsoft.Resources/deployments/SqlServerDb",
-        "Microsoft.Resources/deployments/SqlServerDb-Dev",
-        "Microsoft.Resources/deployments/SqlServerDb-Stage",
-        "Microsoft.Resources/deployments/AppInsights",
-        "Microsoft.Resources/deployments/AppInsights-Dev",
-        "Microsoft.Resources/deployments/AppInsights-Stage"
+        "[concat('Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]"
       ],
+      "tags": {
+        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]": "Resource",
+        "displayName": "WebsiteHostingPlanAlertRuleLongHttpQueue"
+      },
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('websiteTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
+        "name": "[concat('LongHttpQueue ', parameters('PartsUnlimitedHostingPlanName'))]",
+        "description": "[concat('The HTTP queue for the instances of ', parameters('PartsUnlimitedHostingPlanName'), ' has a large number of pending requests.')]",
+        "isEnabled": "[parameters('EnableRules')]",
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]",
+            "metricName": "HttpQueueLength"
+          },
+          "operator": "GreaterThan",
+          "threshold": 100,
+          "windowSize": "PT5M"
         },
-        "parameters": {
-          "WebsiteName": { "value": "[parameters('WebsiteName')]" },
-          "HostingPlanName": { "value": "[parameters('PartsUnlimitedHostingPlanName')]" },
-          "DatabaseConnectionString": { "value": "[reference('Microsoft.Resources/deployments/SqlServerDb').outputs.connectionString.value]" },
-          "DevSlotDatabaseConnectionString": { "value": "[reference('Microsoft.Resources/deployments/SqlServerDb-Dev').outputs.connectionString.value]" },
-          "StageSlotDatabaseConnectionString": { "value": "[reference('Microsoft.Resources/deployments/SqlServerDb-Stage').outputs.connectionString.value]" },
-          "AppInsightsKey": { "value": "[reference('Microsoft.Resources/deployments/AppInsights').outputs.instrumentationKey.value]" },
-          "DevSlotAppInsightsKey": { "value": "[reference('Microsoft.Resources/deployments/AppInsights-Dev').outputs.instrumentationKey.value]" },
-          "StageSlotAppInsightsKey": { "value": "[reference('Microsoft.Resources/deployments/AppInsights-Stage').outputs.instrumentationKey.value]" }
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": []
         }
       }
     },
     {
-      "name": "WebsiteRules",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
+      "name": "[parameters('WebsiteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
       "dependsOn": [
-        "Microsoft.Resources/deployments/Website"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('PartsUnlimitedHostingPlanName'))]",
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('PartsUnlimitedServerName'), parameters('PartsUnlimitedDBName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
       ],
+      "tags": {
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('PartsUnlimitedHostingPlanName'))]": "Resource",
+        "displayName": "PartsUnlimitedWebsite"
+      },
       "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('websiteRulesTemplateFile'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
+        "name": "[parameters('WebsiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('PartsUnlimitedHostingPlanName'))]"
+      },
+      "resources": [
+        {
+          "name": "connectionstrings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', parameters('WebsiteName'))]"
+          ],
+          "properties": {
+            "DefaultConnection": {
+              "value": "[concat('Server=tcp:', reference(variables('dbServerResourceId'), '2014-04-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('PartsUnlimitedDBName'), ';Persist Security Info=False;User ID=', parameters('PartsUnlimitedServerAdminLogin'), '@', parameters('PartsUnlimitedServerName'), ';Password=', parameters('PartsUnlimitedServerAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+              "type": "SQLAzure"
+            }
+          }
         },
-        "parameters": {
-          "WebsiteName": { "value": "[parameters('WebsiteName')]" },
-          "EnableRules": { "value": "[parameters('EnableRules')]" }
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', parameters('WebsiteName'))]"
+          ],
+          "properties": {
+            "Keys:ApplicationInsights:InstrumentationKey": "[reference(concat('Microsoft.Insights/components/', variables('appInsightsName'))).InstrumentationKey]"
+          }
         }
-      }
+      ]
     }
-  ]
+  ],
+  "outputs": {
+    "connectionString": {
+      "type": "string",
+      "value": "[concat('Server=tcp:', reference(variables('dbServerResourceId'), '2014-04-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('PartsUnlimitedDBName'), ';Persist Security Info=False;User ID=', parameters('PartsUnlimitedServerAdminLogin'), '@', parameters('PartsUnlimitedServerName'), ';Password=', parameters('PartsUnlimitedServerAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+    },
+    "instrumentationKey": {
+      "type": "string",
+      "value": "[reference(concat('Microsoft.Insights/components/', variables('appInsightsName'))).InstrumentationKey]"
+    }
+  }
 }
