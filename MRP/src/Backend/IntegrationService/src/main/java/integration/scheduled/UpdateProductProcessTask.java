@@ -38,7 +38,7 @@ public class UpdateProductProcessTask {
             log.error("Exception thrown while processing catalog item inventory :" + ex.toString());
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
+            ex.printStackTrace(pw);
             log.error(sw.toString());
         }
     }
