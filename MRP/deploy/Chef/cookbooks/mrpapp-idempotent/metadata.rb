@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures mrp application server'
 long_description 'Installs/Configures mrp application server'
-version '0.3.4'
+version '0.4.4'
 
 depends 'apt'
 depends 'java'
