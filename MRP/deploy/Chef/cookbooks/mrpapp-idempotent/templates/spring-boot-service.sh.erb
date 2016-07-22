@@ -50,7 +50,7 @@ start() {
 
     pid_of_spring_boot > /dev/null
     RETVAL=$?
-    if [ $RETVAL = 0 ] then
+    if [ $RETVAL = 0 ]; then
       touch "$LOCK"
       echo success
       exit 0
@@ -72,7 +72,7 @@ stop() {
             ((cnt--))
     done
 
-    if [ $RETVAL = 0 ] then
+    if [ $RETVAL = 0 ]; then
       rm -f "$LOCK"
       echo success
       exit 0
