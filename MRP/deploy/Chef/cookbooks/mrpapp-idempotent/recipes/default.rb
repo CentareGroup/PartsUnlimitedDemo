@@ -41,7 +41,6 @@ template "/etc/init.d/#{project}" do
   group 'root'
   mode '755'
   variables ({ :project => project })
-  notifies :restart, "service[#{project}]"
 end
 directory "/var/log/#{project}"
 
@@ -52,6 +51,5 @@ template "/etc/init.d/#{project}" do
   group 'root'
   mode '755'
   variables ({ :project => project })
-  notifies :restart, "service[#{project}]"
 end
 directory "/var/log/#{project}"
