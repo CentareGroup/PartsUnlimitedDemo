@@ -43,10 +43,7 @@ template "/etc/init.d/#{project}" do
   variables ({ :project => project })
   notifies :restart, "service[#{project}]"
 end
-
-service project do
-  action :start
-end
+directory "/var/log/#{project}"
 
 project = "integration-service"
 template "/etc/init.d/#{project}" do
@@ -57,7 +54,4 @@ template "/etc/init.d/#{project}" do
   variables ({ :project => project })
   notifies :restart, "service[#{project}]"
 end
-
-service project do
-  action :start
-end
+directory "/var/log/#{project}"

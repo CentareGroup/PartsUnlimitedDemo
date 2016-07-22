@@ -50,10 +50,13 @@ start() {
 
     pid_of_spring_boot > /dev/null
     RETVAL=$?
-    [ $RETVAL = 0 ] && success $"$STRING" || failure $"$STRING"
-    echo
-
-    [ $RETVAL = 0 ] && touch "$LOCK"
+    if [ $RETVAL = 0 ] then
+      touch "$LOCK"
+      echo success
+      exit 0
+    fi
+    echo failure
+    exit 1
 }
 
 stop() {
@@ -69,9 +72,13 @@ stop() {
             ((cnt--))
     done
 
-    [ $RETVAL = 0 ] && rm -f "$LOCK"
-    [ $RETVAL = 0 ] && success $"$STRING" || failure $"$STRING"
-    echo
+    if [ $RETVAL = 0 ] then
+      rm -f "$LOCK"
+      echo success
+      exit 0
+    fi
+    echo failure
+    exit 1
 }
 
 status() {
