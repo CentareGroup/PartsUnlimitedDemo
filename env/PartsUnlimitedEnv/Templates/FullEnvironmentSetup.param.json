@@ -1,39 +1,45 @@
 ﻿{
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "WebsiteName": {
-            "value": "centpartsunlimited"
-        },
-        "PartsUnlimitedServerName": {
-            "value": "partsunlimitedsql"
-        },
-        "PartsUnlimitedHostingPlanName": {
-            "value": "Standard"
-        },
-        "CdnStorageAccountName": {
-            "value": "partsunlimitedmrp"
-        },
-        "CdnStorageContainerName": {
-            "value": "cdn"
-        },
-        "CdnStorageAccountNameForDev": {
-            "value": "partsunlimitedmrp"
-        },
-        "CdnStorageContainerNameForDev": {
-            "value": "cdndev"
-        },
-        "CdnStorageAccountNameForStaging": {
-            "value": "partsunlimitedmrp"
-        },
-        "CdnStorageContainerNameForStaging": {
-            "value": "cdnstage"
-        },
-        "_artifactsLocation": {
-            "value": "" 
-        },
-        "_artifactsLocationSasToken": {
-            "value": ""
-        }
+  "parameters": {
+    "WebsiteName": {
+      "value": "#{WebsiteName}"
+    },
+    "PartsUnlimitedHostingPlanName": {
+      "value": "#{PartsUnlimitedHostingPlanName}"
+    },
+    "PartsUnlimitedHostingPlanSKU": {
+      "value": "#{PartsUnlimitedHostingPlanSKU}"
+    },
+    "PartsUnlimitedHostingPlanWorkerSize": {
+      "value": "#{PartsUnlimitedHostingPlanWorkerSize}"
+    },
+    "PartsUnlimitedServerName": {
+      "value": "#{PartsUnlimitedServerName}"
+    },
+    "PartsUnlimitedServerAdminLogin": {
+      "value": "#{PartsUnlimitedServerAdminLogin}"
+    },
+    "PartsUnlimitedServerAdminLoginPassword": {
+      "value": "#{PartsUnlimitedServerAdminLoginPassword}"
+    },
+    "PartsUnlimitedDBName": {
+      "value": "#{PartsUnlimitedDBName}"
+    },
+    "PartsUnlimitedDBEdition": {
+      "value": "#{PartsUnlimitedDBEdition}"
+    },
+    "PartsUnlimitedDBServiceObjectiveName": {
+      "value": "#{PartsUnlimitedDBServiceObjectiveName}"
+    },
+    "EnableRules": {
+      "value": "#{EnableRules}"
+    },
+    "CdnStorageAccountName": {
+      "value": "#{CdnStorageAccountName}"
+    },
+    "CdnStorageContainerName": {
+      "value": "#{CdnStorageContainerName}"
     }
+  }
 }
