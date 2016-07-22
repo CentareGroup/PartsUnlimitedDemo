@@ -32,3 +32,32 @@ end
 tomcat_service mrp_name do
   action :start
 end
+
+# Setup services for springboot apps
+project = "ordering-service"
+template "/etc/init.d/#{project}" do
+  source 'sprint-boot-service.sh.erb'
+  owner 'root'
+  group 'root'
+  mode '755'
+  variables ({ :project => project })
+  notifies :restart, "service[#{project}]"
+end
+
+service project do
+  action :start
+end
+
+project = "integration-service"
+template "/etc/init.d/#{project}" do
+  source 'sprint-boot-service.sh.erb'
+  owner 'root'
+  group 'root'
+  mode '755'
+  variables ({ :project => project })
+  notifies :restart, "service[#{project}]"
+end
+
+service project do
+  action :start
+end
