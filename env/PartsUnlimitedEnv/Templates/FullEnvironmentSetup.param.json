@@ -32,9 +32,6 @@
     "PartsUnlimitedDBServiceObjectiveName": {
       "value": "#{PartsUnlimitedDBServiceObjectiveName}"
     },
-    "EnableRules": {
-      "value": "#{EnableRules}"
-    },
     "CdnStorageAccountName": {
       "value": "#{CdnStorageAccountName}"
     },
