@@ -51,13 +51,11 @@ public class ConfigurationHelpers {
 
         Properties props = new Properties();
         
-        log.info("Checking For System Property File Argument: " + propFileName);
-        String propPath = System.getProperty(propFileName);
-        
+        log.info("Checking For System Property File Argument: " + propFileName);        
 
-        if (propPath != null && new File(propPath).isFile()) {
-            final FileInputStream in = new FileInputStream(propPath);
-            log.info("Loading System Property File: " + propPath);
+        if (propFileName != null && new File(propFileName).isFile()) {
+            final FileInputStream in = new FileInputStream(propFileName);
+            log.info("Loading System Property File: " + propFileName);
 
             try {
                 props.load(in);
