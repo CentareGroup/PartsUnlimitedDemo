@@ -26,7 +26,7 @@ SPRINGBOOTAPP_JAVA=$JAVA_HOME/bin/java
 # spring boot log-file
 LOG="/var/log/$PROJECT_NAME/$PROJECT_NAME.log"
 
-LOCK="/var/lock/subsys/$PROJECT_NAME"
+LOCK="/var/lock/$PROJECT_NAME"
 
 RETVAL=0
 
@@ -42,7 +42,7 @@ start() {
     cd "$SPRINGBOOTAPP_HOME"
     su $SERVICE_USER -c "nohup $SPRINGBOOTAPP_JAVA -jar \"$SPRINGBOOTAPP_JAR\"  >> \"$LOG\" 2>&1 &"
 
-    while { pid_of_spring_boot > /dev/null ; } ; do
+    while { ! pid_of_spring_boot > /dev/null ; } ; do
         sleep 1
     done
 
