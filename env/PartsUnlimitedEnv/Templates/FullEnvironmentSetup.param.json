@@ -15,7 +15,7 @@
       "value": "#{PartsUnlimitedHostingPlanWorkerSize}"
     },
     "PartsUnlimitedServerName": {
-      "value": "#{PartsUnlimitedServerName}"
+      "value": "#{PartsUnlimitedServerName | ToLower}"
     },
     "PartsUnlimitedServerAdminLogin": {
       "value": "#{PartsUnlimitedServerAdminLogin}"
