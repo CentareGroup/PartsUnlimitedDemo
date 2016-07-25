@@ -1,5 +1,8 @@
 package integration.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
 import com.microsoft.azure.storage.queue.CloudQueue;
@@ -15,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * The queue factory is responsible for initializing and locating the queues a thread safe manner.
  */
 public class QueueFactory {
-
+    private final static Logger log = LoggerFactory.getLogger(QueueFactory.class);
     private static Map<String, CloudQueue> s_queueDictionary;
 
     /**
@@ -37,7 +40,9 @@ public class QueueFactory {
             return s_queueDictionary.get(queueKey);
         } else {
             // Retrieve storage account from connection-string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.parse(ConfigurationManager.getAzureStorageConnectionString());
+            String connStr = ConfigurationManager.getAzureStorageConnectionString();
+            log.info("Connecting to Azure account with connection string " + connStr);
+            CloudStorageAccount storageAccount = CloudStorageAccount.parse(connStr);
             // Create the queue client.
             CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
             // Retrieve a reference to a queue.
