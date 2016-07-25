@@ -50,14 +50,12 @@ public class ConfigurationHelpers {
     private static Properties getPropValues(String propFileName) throws IOException {
 
         Properties props = new Properties();
-        
-        log.info("Checking For System Property File Argument: " + propFileName);
-        String propPath = System.getProperty(propFileName);
-        
 
-        if (propPath != null && new File(propPath).isFile()) {
-            final FileInputStream in = new FileInputStream(propPath);
-            log.info("Loading System Property File: " + propPath);
+        log.info("Checking For System Property File Argument: " + propFileName);
+
+        if (propFileName != null && new File(propFileName).isFile()) {
+            final FileInputStream in = new FileInputStream(propFileName);
+            log.info("Loading System Property File: " + propFileName);
 
             try {
                 props.load(in);
@@ -87,6 +85,7 @@ public class ConfigurationHelpers {
         try {
             s_props = getPropValues("application.properties");
         } catch (Exception e) {
+            log.warn("application.properties could not be read, falling back on empty properties! Nested exception: " + e.getMessage());
             s_props = new Properties();
         }
     }

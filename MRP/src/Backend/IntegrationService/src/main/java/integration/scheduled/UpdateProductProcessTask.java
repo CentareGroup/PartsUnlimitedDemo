@@ -10,7 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-
+import java.io.StringWriter;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -35,6 +36,10 @@ public class UpdateProductProcessTask {
         catch (Exception ex)
         {
             log.error("Exception thrown while processing catalog item inventory :" + ex.toString());
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            ex.printStackTrace(pw);
+            log.error(sw.toString());
         }
     }
 }
