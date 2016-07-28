@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Octopus.SharedSteps</id>
+    <title>Octopus.SharedSteps</title>
+    <version>$version$</version>
+    <authors>PU Demo</authors>
+    <owners>PU Demo</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NuGet Package with Shared Steps</description>
+  </metadata>
+  <files>
+    <file src="*.ps1" target="" />
+  </files>
+</package>
