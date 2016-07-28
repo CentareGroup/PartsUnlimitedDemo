@@ -74,4 +74,5 @@ While ($true) {
         Write-Verbose "Deployment completed without errors"
         Break;
     }
+    sleep 30
 }
