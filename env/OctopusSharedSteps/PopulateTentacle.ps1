@@ -1,17 +1,13 @@
-﻿$baseUrl = $OctopusParameters['Octopus.Web.BaseUrl']
+﻿$baseUrl =                $OctopusParameters['Octopus.Web.BaseUrl']
+$targetEnvironmentId =    $OctopusParameters['Octopus.Environment.Id']
+$targetRoles =            $OctopusParameters['TargetRoles']
+$authenticationAccount =  $OctopusParameters['ConnectionCredentials']
+$hostnameOrIpAddress =    $OctopusParameters['MachineName']
+ 
 $apiKey = 'API-ZERDHXHBP2HWGRZEXKWK3QGMK'
 
-$targetEnvironment = 'Production'
-$targetRoles = 'MRP-Host'
 $machineName = $null
-$authenticationAccount = 'Centare Credentials'
-$hostnameOrIpAddress = 'centaremrp.eastus.cloudapp.azure.com'
-
 $headers = @{ 'X-Octopus-ApiKey' = $apiKey }
-
-# Get environment list to ensure correct one
-$environments = Invoke-RestMethod "${baseUrl}/api/environments/all" -Headers $headers -Method Get
-$theEnvironment = $environments | ? { $_.Name -eq $targetEnvironment }
 
 # Get account list to ensure correct one
 $accounts = Invoke-RestMethod "${baseUrl}/api/accounts/all" -Headers $headers -Method Get
@@ -37,7 +33,7 @@ If (![string]::IsNullOrEmpty($machineName))
 }
 
 $discovered.Roles += $targetRoles
-$discovered.EnvironmentIds += $theEnvironment.Id
+$discovered.EnvironmentIds += $targetEnvironmentId
 $discovered.Endpoint.AccountId = $theAccount.Id
 
 # Complete Registration of machine
